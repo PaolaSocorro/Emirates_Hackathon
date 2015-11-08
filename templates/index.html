@@ -20,6 +20,8 @@
 		<div>
 			<label for="airportcodes">Enter Origin Airport: </label>
 			<input id="airportcodes" name="origin" tabindex="1" required>
+
+			<button id="random">Random Button for Testing</button
 		</div>
 		<div id="question-section">
 			<div id="question"></div>
@@ -82,7 +84,7 @@
 				if (questions['box'+i]) {
 					$('#box'+i).html('<div class="question-data">' + questions['box'+i] + '<button class="btn btn-primary" type="button" id="option1">Yes</button> <button class="btn btn-primary" type="button" id="option2">No</button></div>')
 				}
-				$('#box'+i).html().hide();
+				$('#box'+i).hide();
 			}
 		}
 

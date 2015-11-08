@@ -9,7 +9,23 @@
     <div class="container">
         <h1>Path Finder</h1>
 
+        <div>
+            {%for destination in result%}
+
+                <div class="result parent-wrap">
+                    <p>{{result[destination]}}</p>
+                </div>
+
+            {%endfor%}
+
+        </div>
+
+
     </div>
+
+    <footer>Copyright ©Path Finder 2015 All Rights Reserved</footer>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
  
 </body>
 </html>

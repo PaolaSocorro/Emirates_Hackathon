@@ -28,7 +28,10 @@ def homepage():
 def results_page():
 	""" Displays the results from the quiz """
 
-	return render_template("result.html")
+	result = {"1": "results of 1","2":"results of 2","3":"results of 3"}
+
+
+	return render_template("result.html",result=result)
 
 @app.route("/airfaresearch.json")
 def airfare_search():
@@ -124,7 +127,7 @@ if __name__ == "__main__":
 	connect_to_db(app)
 	PORT = int(os.environ.get("PORT", 5000))
 	# DebugToolbarExtension(app)
-	SQLALCHEMY_TRACK_MODIFICATIONS = True
+	# SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 
 	DEBUG = "NO_DEBUG" not in os.environ

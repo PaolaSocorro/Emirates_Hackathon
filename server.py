@@ -188,6 +188,8 @@ def searchExperience():
     print search_results
     return_dict = {}
     if search_results:
+    	if len(search_results) > 10:
+    		search_results = search_results[:10]
         for experience in search_results:
             detail_info = experience.get_detailed_info()
             name = detail_info.get('name', None)

@@ -153,7 +153,7 @@ function getFareResults(persona){
 						"</h3><p>Lowest Fare: $" + parseInt(lowestFare) + 
 						"</p><p>Departure Date: " + lowestFareDep.slice(0,10) +
 						"</p><p>Return Date: " + lowestFareRet.slice(0,10) +
-						"</p><button class='experiences-btn' data-lat='" + lat + "' data-lon='" + lon + "' data-toggle='modal' data-target='#experiences-feed'>Things To Do</button></div>")
+						"</p><button class='experiences-btn' data-lat='" + lat + "' data-lon='" + lon + "' data-toggle='modal' data-target='#experiences-feed'>Xola's Things To Do</button></div>")
 			console.log(lowestFareDep);
 			console.log(lowestFareRet);
 
@@ -201,7 +201,7 @@ function getFareResults(persona){
 						"</h3><p>Lowest Fare: $" + parseInt(lowestFare) + 
 						"</p><p>Departure Date: " + lowestFareDep.slice(0,10) +
 						"</p><p>Return Date: " + lowestFareRet.slice(0,10) +
-						"</p><button class='experiences-btn' data-toggle='modal' data-target='#experiences-feed'>Things To Do</button></div>");
+						"</p><button class='experiences-btn' data-lat='" + lat + "' data-lon='" + lon + "' data-toggle='modal' data-target='#experiences-feed'>Xola's Things To Do</button></div>");
 			console.log(lowestFareDep);
 			console.log(lowestFareRet);
 
@@ -252,6 +252,7 @@ $(document).on('click', '.experiences-btn', function() {
 				"&lon=" + lon;
 	console.log(url)
 
+	$("ul#experiences").html("");
 
 	// calling for geoJSON
 	$.get(url, function (data) {
@@ -273,6 +274,8 @@ $(document).on('click', '.experiences-btn', function() {
 					"'></li>");
 			};
 			
+		} else {
+			$("ul#experiences").append("<p>Sorry, Xola currently doesn't have any experiences to offer at this location. Happy exploring!</p>")
 		}
 
 

@@ -55,7 +55,11 @@ function showVoyagers(){
 }
 
 function showTraditionals(){
+	$("#question-section").fadeOut(1000);
+	$("#persona").hide();
+	$(".top-three-results").hide();
 	$("#persona").html("<h2>You are a <b>Traditional</b></h2><p>You prefer a life that is more structured, stable and predictable. You would rather follow some set patterns or routines in your life so that you are more likely to know what will happen during each day and, therefore, can plan or prepare for it much better.</p>");
+	$("#persona").fadeIn(5000);
 
 	getFareResults("Romantic");
 }
@@ -116,7 +120,7 @@ function getFareResults(persona){
 			console.log(lowestFare);
 			$(".top-three-results").append(
 						"<div class='top-result'><h3>" + city +
-						"</h3><p>Lowest Fare: $" + lowestFare + 
+						"</h3><p>Lowest Fare: $" + parseInt(lowestFare) + 
 						"</p><p>Departure Date: " + lowestFareDep.slice(0,10) +
 						"</p><p>Return Date: " + lowestFareRet.slice(0,10) +
 						"</p></div>")
@@ -125,6 +129,9 @@ function getFareResults(persona){
 
 		}
 	})
+
+	$(".top-three-results").fadeIn(10000);
+
 }
 
 

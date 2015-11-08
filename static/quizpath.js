@@ -54,7 +54,12 @@ function showPioneers(){
 
 
 function showVoyagers(){
+	$("#question-section").fadeOut(1000);
+	$("#persona").hide();
+	$(".top-three-results").hide();
+	$(".remaining-results").hide();
 	$("#persona").html("<h2>You are a <b>Voyager</b></h2><p>Compared to other groups, you have lots of company. Three out of ten travelers (30%) place in your group, making you one of the largest segments of travelers. As a result, the majority of travel providers-airlines, resorts, rental car companies, tour operators, cruise lines, and others- place you at the top of their list of persons they want to reach and motivate to travel.</p>");
+	$("#persona").fadeIn(5000);
 
 	getFareResults();
 }
@@ -196,7 +201,7 @@ function getFareResults(persona){
 
 
 
-	$(".top-three-results").fadeIn(10000, function() {
+	$(".top-three-results").fadeIn(7000, function() {
 		$("#load-more-results").show();
 	});
 

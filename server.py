@@ -1,4 +1,5 @@
-from model import AirportCode, connect_to_db, db
+import personas
+from model import AirportCode, connect_to_db, db, Experience
 from flask import Flask, render_template, redirect, request, flash, session, jsonify
 
 import requests
@@ -13,7 +14,6 @@ import os
 sabre_access_token = os.environ["SABRE_ACCESS_TOKEN"]
 
 
-
 app = Flask(__name__)
 
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "ABCDEF")
@@ -24,6 +24,41 @@ def homepage():
 
 	return render_template("index.html")
 
+@app.route("/persona")
+def get_personas():
+# places format is as follows: international, city/country, score, lon, lat 
+	results = {'voyager': [[1, 'Czech Republic', "PRG", 9.0, 14.2600002, 50.1007996], 
+							[1, 'Ireland', "DUB", 7.5, -6.249909800000069, 53.42644809999999], 
+							[1, 'Prince Edward Island, Canada',"YYG", 9.9, -63.1211014, 46.2900009]], 
+				'venturer': [[1, 'South Africa',"CPT", 9.5, 18.6016998, -33.9648018], 
+							[1, 'Victoria, British Columbia, Canada', "YYJ", 8.5, -123.4302928, 48.6402067], 
+							[1, 'Kenya', "NBO", 9.5, 36.927109, -1.333731]], 
+				'traditional': [[1, 'Vancouver, British Columbia, Canada', "YVR", 8.0, -123.1775716, 49.1959446], 
+								[1, 'Australia',"CBR", 8.5, 149.1950073, -35.3069], 
+								[1, 'London, England', "LCY", 7.0, 0.055278, 51.505268]], 
+				'pioneer': [[1, 'Peru', "LIM", 9.5, -77.114304, -12.021800], 
+							[1, 'Ireland', "DUB", 7.5, -6.249909800000069, 53.42644809999999], 
+							[1, 'British Columbia, Canada', "YYJ", 9.9, -123.1775716, 49.1959446]]}
+
+
+	persona = request.args.get("persona")
+
+	top_3_international_places = results[persona]
+
+	top_3_dict = []
+
+	for item in top_3_international_places:
+		one_place = {
+			"name": item[1],
+			"aiportcode": item[2],
+			"lon": item[4],
+			"lat": item[5]
+		}
+		top_3_dict.append(one_place)
+
+	return jsonify(results=top_3_dict)
+
+
 @app.route("/result")
 def results_page():
 	""" Displays the results from the quiz """
@@ -32,6 +67,7 @@ def results_page():
 
 
 	return render_template("result.html",result=result)
+
 
 @app.route("/airfaresearch.json")
 def airfare_search():
@@ -120,6 +156,22 @@ def airfare_search():
 	# return jsonify(results=response_text) 
 
 
+def get_experience(id):
+    experience = Experience.get_experience_by_id(id)
+    detail_info = experience.get_detailed_info()
+    name = detail_info.get('name', None)
+    excerpt = detail_info.get('excerpt', None)
+    duration = detail_info.get('duration', None)
+    price = detail_info.get('price', None)
+    medias = detail_info.get('medias', None)
+    photo_src = None
+    if medias:
+        photo_src = medias[0].get('src', None)
+
+
+    print name, excerpt, duration, price, photo_src
+
+    return 'hello'
 
 
 if __name__ == "__main__":
@@ -127,9 +179,11 @@ if __name__ == "__main__":
 	connect_to_db(app)
 	PORT = int(os.environ.get("PORT", 5000))
 	# DebugToolbarExtension(app)
+
 	# SQLALCHEMY_TRACK_MODIFICATIONS = True
+
 
 
 	DEBUG = "NO_DEBUG" not in os.environ
 
-	app.run(debug=DEBUG, host="0.0.0.0", port=PORT)
+	app.run(debug=DEBUG)

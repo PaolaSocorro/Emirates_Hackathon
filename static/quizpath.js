@@ -265,7 +265,7 @@ $(document).on('click', '.experiences-btn', function() {
 			var excerpt
 			var price 
 
-			$("instagram").append("");
+			$("#experiences").append("");
 		}
 
 	})

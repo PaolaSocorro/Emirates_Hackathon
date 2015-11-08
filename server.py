@@ -175,23 +175,36 @@ def airfare_search():
 	# # THIS WILL RETURN THE PLAIN JSON THAT WORKS
 	# return jsonify(results=response_text) 
 
-
-def get_experience(id):
-    experience = Experience.get_experience_by_id(id)
-    detail_info = experience.get_detailed_info()
-    name = detail_info.get('name', None)
-    excerpt = detail_info.get('excerpt', None)
-    duration = detail_info.get('duration', None)
-    price = detail_info.get('price', None)
-    medias = detail_info.get('medias', None)
-    photo_src = None
-    if medias:
-        photo_src = medias[0].get('src', None)
-
-
-    print name, excerpt, duration, price, photo_src
-
-    return 'hello'
+@app.route('/experiencesearch.json')
+def searchExperience():
+    lat = request.args.get('lat')
+    lon = request.args.get('lon')
+    print lat, lon
+    search_results = Experience.get_experience_by_lat_long(original_lat=float(lat), original_lng=float(lon))
+    print search_results
+    return_dict = {}
+    if search_results:
+        for experience in search_results:
+            detail_info = experience.get_detailed_info()
+            name = detail_info.get('name', None)
+            excerpt = detail_info.get('excerpt', None)
+            duration = detail_info.get('duration', None)
+            price = detail_info.get('price', None)
+            medias = detail_info.get('medias', None)
+            photo_src = None
+            if medias:
+                photo_src = medias[0].get('src', None)
+            return_dict[experience.id] = {
+                'name': name,
+                'excerpt': excerpt,
+                'duration': duration,
+                'price': price,
+                'photo_src': photo_src,
+            }
+        print return_dict
+        return jsonify(return_dict)
+    else:
+        return jsonify("null")
 
 
 if __name__ == "__main__":

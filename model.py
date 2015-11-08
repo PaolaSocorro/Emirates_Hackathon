@@ -34,7 +34,7 @@ class Experience(db.Model):
 
     def __repr__(self):
 
-        return "<Object experience Code: %s>" % (self.id)
+        return "<Object experience id: %s>" % (self.id)
 
     @classmethod
     def get_experience_by_lat_long(cls, original_lat, original_lng):

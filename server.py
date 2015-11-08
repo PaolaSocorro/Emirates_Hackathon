@@ -10,7 +10,7 @@ import geojson
 import os
 
 
-sabre_access_token = os.environ["SABRE_ACCESS_TOKEN"]
+# sabre_access_token = os.environ["SABRE_ACCESS_TOKEN"]
 
 
 app = Flask(__name__)
@@ -146,8 +146,7 @@ if __name__ == "__main__":
 
 	# SQLALCHEMY_TRACK_MODIFICATIONS = True
 
-
-
+    
 	DEBUG = "NO_DEBUG" not in os.environ
-
 	app.run(debug=DEBUG)
+

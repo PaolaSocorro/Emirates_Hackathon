@@ -5,11 +5,20 @@ body {
 	background-image: url('/static/img/fabric.jpg');
 }
 
+
+.resultcontainer{
+	padding: 0;
+	margin: 0;
+
+}
+
+
 #map { 
 	position:absolute; 
 	top:0; 
 	bottom:0; 
 	width:100%; 
+	opacity: .5;
 	z-index: -1;
 
 }
@@ -32,11 +41,11 @@ body {
 	margin-top: 10px;
 	display: block;
 	z-index: 2;
-	opacity: .5;
+	opacity: .8;
 }
 
-.result p{
-	opacity: 1;
+#persona{
+	padding: 20px;
 }
 
 h1 {
@@ -74,11 +83,16 @@ footer {
     text-align: left;
 }
 
+div#persona {
+	padding: 50px;
+}
+
 div.top-three-results div.top-result {
 	display: inline-block;
 	padding: 20px;
 }
 
+<<<<<<< HEAD
 #game-container {
 	/*display: none;*/
 }
@@ -92,4 +106,18 @@ div.top-three-results div.top-result {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
+}
+
+div.remaining-results div.top-result {
+	display: inline-block;
+	padding: 20px;
+}
+
+ul#experiences li {
+	list-style-type: none;
+}
+
+ul#experiences li img {
+	display: inline;
+	width: 250px;
 }

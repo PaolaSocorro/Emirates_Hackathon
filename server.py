@@ -86,7 +86,7 @@ def get_personas():
 def results_page():
 	""" Displays the results from the quiz """
 
-	result = {"1": "results of 1","2":"results of 2","3":"results of 3"}
+	result = {"pioneer":{"1": "results of 1","2":"results of 2","3":"results of 3"}}
 
 
 	return render_template("result.html",result=result)
@@ -141,6 +141,10 @@ def airfare_search():
 		airport_code = item["id"]
 		city = item["city"]
 
+		# some results don't have a city name
+		if city == None or city == "":
+			continue
+
 		# must double check if valid coords. API sometimes returns invalid destinations
 		check_type = type(item["coords"]["latitude"])
 		if check_type == type(u'-85.73'):
@@ -175,23 +179,38 @@ def airfare_search():
 	# # THIS WILL RETURN THE PLAIN JSON THAT WORKS
 	# return jsonify(results=response_text) 
 
-
-def get_experience(id):
-    experience = Experience.get_experience_by_id(id)
-    detail_info = experience.get_detailed_info()
-    name = detail_info.get('name', None)
-    excerpt = detail_info.get('excerpt', None)
-    duration = detail_info.get('duration', None)
-    price = detail_info.get('price', None)
-    medias = detail_info.get('medias', None)
-    photo_src = None
-    if medias:
-        photo_src = medias[0].get('src', None)
-
-
-    print name, excerpt, duration, price, photo_src
-
-    return 'hello'
+@app.route('/experiencesearch.json')
+def searchExperience():
+    lat = request.args.get('lat')
+    lon = request.args.get('lon')
+    print lat, lon
+    search_results = Experience.get_experience_by_lat_long(original_lat=float(lat), original_lng=float(lon))
+    print search_results
+    return_dict = {}
+    if search_results:
+    	if len(search_results) > 10:
+    		search_results = search_results[:10]
+        for experience in search_results:
+            detail_info = experience.get_detailed_info()
+            name = detail_info.get('name', None)
+            excerpt = detail_info.get('excerpt', None)
+            duration = detail_info.get('duration', None)
+            price = detail_info.get('price', None)
+            medias = detail_info.get('medias', None)
+            photo_src = None
+            if medias:
+                photo_src = medias[0].get('src', None)
+            return_dict[experience.id] = {
+                'name': name,
+                'excerpt': excerpt,
+                'duration': duration,
+                'price': price,
+                'photo_src': photo_src,
+            }
+        print return_dict
+        return jsonify(return_dict)
+    else:
+        return jsonify("null")
 
 
 if __name__ == "__main__":
@@ -202,8 +221,7 @@ if __name__ == "__main__":
 
 	# SQLALCHEMY_TRACK_MODIFICATIONS = True
 
-
-
+    
 	DEBUG = "NO_DEBUG" not in os.environ
-
 	app.run(debug=DEBUG)
+

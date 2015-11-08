@@ -50,29 +50,21 @@ $(document).on('click', '#box6-button2', function() {
 
 $(document).on('click', '#box3-button1', function() {
 	//hide page and reveal Pioneers
-	alert("You're a pioneer!");
-	var persona = {persona: 'pioneer'}
-	$.post("/persona", persona, function (result) {
-		console.log('result');
-	})
 	showPioneers();
 });
 
 $(document).on('click', '#box3-button2', function() {
 	//hide page and reveal Venturers
-	alert("You're a Venturer!");
 	showVenturers();
 });
 
 $(document).on('click', '#box8-button1', function() {
 	//hide page and reveal Traditionals
-	alert("You're a Traditional!");
 	showTraditionals();
 });
 
 $(document).on('click', '#box8-button2', function() {
 	//hide page and reveal Voyagers
-	alert("You're a Voyager!");
 	showVoyagers();
 });
 

@@ -36,6 +36,76 @@
 
 			</div>
 
+	<div class="container">
+		<h1>Path Finder</h1>
+		<div id="question-section">
+		<div>
+			<label for="airportcodes"><h2>Which city are you in now?</h2></label><br>
+			<input id="airportcodes" name="origin" tabindex="1" required>
+		</div>
+			<div id="question"></div>
+		<hr>
+		<div>
+			<div class="box parent-wrap" id="box1"></div>
+			<div class="box parent-wrap" id="box2"></div>
+			<div class="box parent-wrap" id="box3"></div>
+			<div class="box parent-wrap" id="box4"></div>
+		</div>
+		<div>
+			<div class="box parent-wrap" id="box5"></div>
+			<div class="box parent-wrap" id="box6"></div>
+			<div class="box parent-wrap" id="box7"></div>
+			<div class="box parent-wrap" id="box8"></div>
+		</div>
+		<div>
+			<div class="box parent-wrap" id="box9"></div>
+			<div class="box parent-wrap" id="box10"></div>
+			<div class="box parent-wrap" id="box11"></div>
+			<div class="box parent-wrap" id="box12"></div>
+		</div>
+
+
+</div>
+
+	<div class="results-container">
+		<div id="persona">
+			</div> <!-- closing for persona --> 
+
+			<div class="top-three-results">
+			</div> <!-- closing for top three results -->
+
+			<button id='load-more-results'>Load More Results...</button>
+
+			<div class="remaining-results">
+			</div> <!-- closing for remaining results -->
+	</div> <!-- closing for results container -->
+
+
+			<!-- EXPERIENCES MODAL WINDOW -->
+			<div class="modal fade" id="experiences-feed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabelCity">Things To Do</h4>
+			      </div>
+
+			      <div class="modal-body">
+			      	<ul id="experiences">
+
+
+			      	</ul>
+			      </div>
+
+			      <div class="modal-footer">
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+
+>>>>>>> c003bda0a28942a2b68f0caf25b3134e78dd9bc8
+
 		</div>
 	</div>
 
@@ -59,6 +129,10 @@
 			$('#game-container').css('display','block')
 		});
 	</script>
+
+		<!-- BOOTSTRAP -->
+		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 
 		<!-- THIS IS LINKING SUSAN'S JS FILE -->
 		<script src="static/quizpath.js"></script>

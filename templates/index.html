@@ -4,10 +4,19 @@
 	<title>Path Finder</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="static/main.css">
+
+		<!-- LINK TO JQUERY UI FOR AUTOCOMPLETE -->
+		<link rel="stylesheet" href="../static/js/jquery-ui.min.css">
+		<script src="../static/js/external/jquery/jquery.js"></script>
+		<script src="../static/js/jquery-ui.min.js"></script>
 </head>
 <body>
 	<div class="container">
 		<h1>Path Finder</h1>
+		<div>
+			<label for="airportcodes">Enter Origin Airport: </label>
+			<input id="airportcodes" name="origin" tabindex="1" required>
+		</div>
 		<div id="question-section">
 			<div id="question"></div>
 			<div class="answers">

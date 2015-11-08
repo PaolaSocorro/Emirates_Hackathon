@@ -141,6 +141,10 @@ def airfare_search():
 		airport_code = item["id"]
 		city = item["city"]
 
+		# some results don't have a city name
+		if city == None:
+			continue
+
 		# must double check if valid coords. API sometimes returns invalid destinations
 		check_type = type(item["coords"]["latitude"])
 		if check_type == type(u'-85.73'):

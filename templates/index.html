@@ -4,49 +4,116 @@
 	<title>Path Finder</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="static/main.css">
+
+	<!-- LINK TO JQUERY FILE -->
+		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+	<!-- LINK TO JQUERY UI FOR AUTOCOMPLETE -->
+		<link rel="stylesheet" href="/static/js/jquery-ui.min.css">
+		<script src="static/js/external/jquery/jquery.js"></script>
+		<script src="static/js/jquery-ui.min.js"></script>
+
 </head>
 <body>
+
 	<div class="container">
 		<h1>Path Finder</h1>
+			<button id="random">Random Button for Testing</button>
 		<div id="question-section">
-			<div id="question"></div>
-			<div class="answers">
-				<button class="btn btn-primary" type="button" id="option1">Yes</button> <button class="btn btn-primary" type="button" id="option2">No</button>
-			</div>
+		<div>
+			<label for="airportcodes">Which city are you in now?</label><br>
+			<input id="airportcodes" name="origin" tabindex="1" required>
 		</div>
+			<div id="question"></div>
 		<hr>
 		<div>
-			<div class="box parent-wrap" id="box1" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"></div>
-			<div class="box parent-wrap" id="box2" data-question="---"></div>
-			<div class="box parent-wrap" id="box3" data-question="I have much more energy than most persons my age."></div>
-			<div class="box parent-wrap" id="box4" data-question="---"></div>
+			<div class="box parent-wrap" id="box1"></div>
+			<div class="box parent-wrap" id="box2"></div>
+			<div class="box parent-wrap" id="box3"></div>
+			<div class="box parent-wrap" id="box4"></div>
 		</div>
 		<div>
-			<div class="box parent-wrap" id="box5" data-question="---"></div>
-			<div class="box parent-wrap" id="box6" data-question="I prefer to go to undiscovered, wild places rather than cities with big hotels and restaurants."></div> 
-			<div class="box parent-wrap" id="box7" data-question="---"></div>
-			<div class="box parent-wrap" id="box8" data-question="I prefer setting up plans and having a routine rather than spontaneity."></div>
+			<div class="box parent-wrap" id="box5"></div>
+			<div class="box parent-wrap" id="box6"></div>
+			<div class="box parent-wrap" id="box7"></div>
+			<div class="box parent-wrap" id="box8"></div>
 		</div>
 		<div>
-			<div class="box parent-wrap" id="box9" data-question="I am more intellectually curious than most people I know."></div>
-			<div class="box parent-wrap" id="box10" data-question="---"></div>
-			<div class="box parent-wrap" id="box11" data-question="---"></div>
-			<div class="box parent-wrap" id="box12" data-question="I believe chances has little to do with the successes I've had in my life."></div>
+			<div class="box parent-wrap" id="box9"></div>
+			<div class="box parent-wrap" id="box10"></div>
+			<div class="box parent-wrap" id="box11"></div>
+			<div class="box parent-wrap" id="box12"></div>
 		</div>
+	<hr>
+	<div id="row1"></div>
+	<div id="row2"></div>
+	<div id="row3"></div>
+
+</div>
+
+	<div class="results-container">
+		<div id="persona">
+			</div> <!-- closing for persona --> 
+
+			<div class="top-three-results">
+			</div> <!-- closing for top three results -->
+
+			<button id='load-more-results'>Load More Results...</button>
+
+			<div class="remaining-results">
+			</div> <!-- closing for remaining results -->
+	</div> <!-- closing for results container -->
+
+
+			<!-- EXPERIENCES MODAL WINDOW -->
+			<div class="modal fade" id="experiences-feed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabelCity">Things To Do</h4>
+			      </div>
+
+			      <div class="modal-body">
+			      	<ul id="experiences">
+
+
+			      	</ul>
+			      </div>
+
+			      <div class="modal-footer">
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+
+
 	</div>
+
 	<footer>Copyright ©Path Finder 2015 All Rights Reserved</footer>
-	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+	<script src="static/js/game.js"></script>
 	<script>
+		(function populateSquares() {
+			for (var i=1; i<=4; i++) {
+				$('#row1').append('<div class="box parent-wrap" id="box'+i+'"></div>');
+			}
+			for (var i=5; i<=8; i++) {
+				$('#row2').append('<div class="box parent-wrap" id="box'+i+'"></div>');
+			}
+			for (var i=9; i<=12; i++) {
+				$('#row3').append('<div class="box parent-wrap" id="box'+i+'"></div>');
+			}
 
-		$('.box').on('click', function() {
-			$('#question').empty();
-			$(this).css('background-color','#80ff95');
-			$('#question').html($(this).attr('data-question'));
-			$(this).html($(this).attr('data-question'));
-		});
-
-
-
+		})();
 	</script>
+
+		<!-- BOOTSTRAP -->
+		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+		<!-- THIS IS LINKING SUSAN'S JS FILE -->
+		<script src="static/quizpath.js"></script>
 </body>
 </html>

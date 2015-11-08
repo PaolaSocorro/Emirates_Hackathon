@@ -24,14 +24,73 @@ def homepage():
 	return render_template("index.html")
 
 
+@app.route("/autocomplete")
+def autocomplete():
+	"""From airport codes database, provide autocomplete in user's arrival input using AJAX."""
+
+	search_value = request.args.get('term')
+
+	query = AirportCode.query.filter(db.or_(AirportCode.code.ilike("%%%s%%" % (search_value)), 
+											AirportCode.location.ilike("%%%s%%" % (search_value)))).all()
+	
+	suggestion_list = []
+
+	for item in query:
+		code = item.code
+		location = item.location
+		suggestion_string = "(%s) %s" %(code, location)
+		suggestion_list.append(suggestion_string)
+	
+	# print suggestion_list
+	
+	return jsonify(data=suggestion_list)
+	
+
+@app.route("/persona")
+def get_personas():
+# places format is as follows: international, city/country, score, lon, lat 
+	results = {'voyager': [[1, 'Czech Republic', "PRG", 9.0, 14.2600002, 50.1007996, "img/voyager_czech.jpg"], 
+							[1, 'Ireland', "DUB", 7.5, -6.249909800000069, 53.42644809999999, "img/voyager_ireland.jpg"], 
+							[1, 'Prince Edward Island, Canada',"YYG", 9.9, -63.1211014, 46.2900009]], 
+				'venturer': [[1, 'South Africa',"CPT", 9.5, 18.6016998, -33.9648018], 
+							[1, 'Victoria, British Columbia, Canada', "YYJ", 8.5, -123.4302928, 48.6402067], 
+							[1, 'Kenya', "NBO", 9.5, 36.927109, -1.333731]], 
+				'traditional': [[1, 'Vancouver, British Columbia, Canada', "YVR", 8.0, -123.1775716, 49.1959446, "img/traditional_vanouver.jpg"], 
+								[1, 'Australia',"CBR", 8.5, 149.1950073, -35.3069, "img/traditional_australia.jpg"], 
+								[1, 'London, England', "LCY", 7.0, 0.055278, 51.505268, "img/traditional_london.jpg"]], 
+				'pioneer': [[1, 'Peru', "LIM", 9.5, -77.114304, -12.021800], 
+							[1, 'Ireland', "DUB", 7.5, -6.249909800000069, 53.42644809999999], 
+							[1, 'British Columbia, Canada', "YYJ", 9.9, -123.1775716, 49.1959446]]}
+
+
+	persona = request.args.get("persona")
+
+	top_3_international_places = results[persona]
+
+	top_3_dict = []
+
+	for item in top_3_international_places:
+		one_place = {
+			"name": item[1],
+			"aiportcode": item[2],
+			"lon": item[4],
+			"lat": item[5],
+			"img_url": item[6]
+		}
+		top_3_dict.append(one_place)
+
+	return jsonify(results=top_3_dict)
+
+
 @app.route("/result")
 def results_page():
 	""" Displays the results from the quiz """
 
-	result = {"1": "results of 1","2":"results of 2","3":"results of 3"}
+	result = {"pioneer":{"1": "results of 1","2":"results of 2","3":"results of 3"}}
 
 
 	return render_template("result.html",result=result)
+
 
 @app.route("/airfaresearch.json")
 def airfare_search():
@@ -46,12 +105,13 @@ def airfare_search():
 	# max_budget = request.args.get('max-budget')
 
 	# TEST INPUT
-	origin = "SFO"
+	origin = request.args.get('origin')
+	origin = origin[1:4]
 	earliest_departure = "2016-01-12"
 	latest_departure = "2016-01-31"
 	length_of_stay = "3"
 	max_budget = "1000"
-	theme = "Outdoors"
+	theme = request.args.get("persona")
 
 
 	headers = {"Authorization": sabre_access_token}
@@ -101,20 +161,16 @@ def airfare_search():
 		if fares[0]["lowestFare"] == 0:
 			continue
 		else:
-			one_result = FlightDestinMarker(lon, lat, airport_code, city, fares)
-
+			# one_result = FlightDestinMarker(lon, lat, airport_code, city, fares)
+			one_result = {"city": city,
+							"airportcode": airport_code,
+							"lon": lon,
+							"lat": lat,
+							"fares": fares}
 			fare_list.append(one_result)
 	
 
-	marker_collection = geojson.FeatureCollection(fare_list)
-	print marker_collection
-	
-
-	# import pdb; pdb.set_trace()
-	# this returns geojson
-	marker_geojson = geojson.dumps(marker_collection, sort_keys=True)
-
-	return marker_geojson
+	return jsonify(data=fare_list)
 
 	# # THIS WILL RETURN THE PLAIN JSON THAT WORKS
 	# return jsonify(results=response_text) 

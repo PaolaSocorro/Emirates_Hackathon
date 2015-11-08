@@ -12,29 +12,31 @@
 		<link rel="stylesheet" href="/static/js/jquery-ui.min.css">
 		<script src="static/js/external/jquery/jquery.js"></script>
 		<script src="static/js/jquery-ui.min.js"></script>
-
 </head>
 <body>
-	<h1>Path Finder</h1>
-	<div>
-		<label for="airportcodes">Enter Origin Airport: </label>
-		<input id="airportcodes" name="origin" tabindex="1" required>
+	<div id="homepage"><img src="/static/img/logo.png"><br><a href="#_" id="path">find your path and fly</a></div>
+	<div id="game-container">
+		<h1>Path Finder</h1>
+		<div>
+			<label for="airportcodes">Enter Origin Airport: </label>
+			<input id="airportcodes" name="origin" tabindex="1" required>
 
-		<button id="random">Random Button for Testing</button>
-	</div>
-	<hr>
-	<div id="row1"></div>
-	<div id="row2"></div>
-	<div id="row3"></div>
-
-	<div class="results container">
-		<div id="persona">
+			<button id="random">Random Button for Testing</button>
 		</div>
+		<hr>
+		<div id="row1"></div>
+		<div id="row2"></div>
+		<div id="row3"></div>
 
-		<div class="top-three-results">
+		<div class="results container">
+			<div id="persona">
+			</div>
+
+			<div class="top-three-results">
+
+			</div>
 
 		</div>
-
 	</div>
 
 	<footer>Copyright ©Path Finder 2015 All Rights Reserved</footer>
@@ -53,6 +55,9 @@
 			}
 
 		})();
+		$('#path').on('click', function() {
+			$('#game-container').css('display','block')
+		});
 	</script>
 
 		<!-- THIS IS LINKING SUSAN'S JS FILE -->

@@ -2,6 +2,7 @@ body {
 	text-align: center;
 	margin: 0 20px;
 	margin-bottom: 50px;
+	background-image: url('/static/img/fabric.jpg');
 }
 
 #map { 
@@ -76,4 +77,19 @@ footer {
 div.top-three-results div.top-result {
 	display: inline-block;
 	padding: 20px;
+}
+
+#game-container {
+	/*display: none;*/
+}
+
+#homepage {
+	height: 600px;
+	/*height: 100%;*/
+	width: 100%;
+	background-image: url('static/img/fabric.jpg');
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }

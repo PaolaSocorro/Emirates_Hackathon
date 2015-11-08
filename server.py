@@ -161,20 +161,16 @@ def airfare_search():
 		if fares[0]["lowestFare"] == 0:
 			continue
 		else:
-			one_result = FlightDestinMarker(lon, lat, airport_code, city, fares)
-
+			# one_result = FlightDestinMarker(lon, lat, airport_code, city, fares)
+			one_result = {"city": city,
+							"airportcode": airport_code,
+							"lon": lon,
+							"lat": lat,
+							"fares": fares}
 			fare_list.append(one_result)
 	
 
-	marker_collection = geojson.FeatureCollection(fare_list)
-	print marker_collection
-	
-
-	# import pdb; pdb.set_trace()
-	# this returns geojson
-	marker_geojson = geojson.dumps(marker_collection, sort_keys=True)
-
-	return marker_geojson
+	return jsonify(data=fare_list)
 
 	# # THIS WILL RETURN THE PLAIN JSON THAT WORKS
 	# return jsonify(results=response_text) 

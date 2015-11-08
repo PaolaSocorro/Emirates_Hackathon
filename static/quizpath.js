@@ -36,35 +36,36 @@ $("#airportcodes").autocomplete({
 
 
 function showVenturers(){
-	$("#persona").append("<h2>You are a <b>Venturer</b></h2>");
-	$("#persona").append("<p>Leisure travel occupies a central place in your life. If you are a typical Venturer, you go to more places, more often and participate in more unique experiences than anyone else. That’s why I call you a Venturer-someone who ventures forth very eagerly and excitedly. You fit in a small group. Only about 4% of all travelers share your extreme love of going to out of the way places and constantly seeking out of the ordinary adventures.</p>");
+	$("#persona").html("<h2>You are a <b>Venturer</b></h2><p>Leisure travel occupies a central place in your life. You go to more places, more often and participate in more unique experiences than anyone else. That’s why I call you a Venturer-someone who ventures forth very eagerly and excitedly. You fit in a small group. Only about 4% of all travelers share your extreme love of going to out of the way places and constantly seeking out of the ordinary adventures.</p>");
 
 	getFareResults(); // NEED TO ADD A THEME FOR EACH PERSONA
 }
 
 function showPioneers(){
-	$("#persona").append("<h2>You are a <b>Pioneer</b></h2>");
-	$("#persona").append("<p>As a Pioneer, your personality fits between venturers and those more in the center of the personality spectrum (“Centrics”). You share a number of characteristics in common with pure Venturers. You like to travel, especially to foreign destinations and you seek new experiences and new destinations for almost all trips you take. You are also physically active at home and on trips. But, unlike your pure Venturer friends, you don’t want to take such extreme vacations and are more likely to plan your trips-set an itinerary of places you want to visit and schedules when you will be there. You also have more company. About 17% of the population has a personality that matches yours, vs. only 4% for pure Venturers.</p>");
+	$("#persona").html("<h2>You are a <b>Pioneer</b></h2><p>You like to travel, especially to foreign destinations and you seek new experiences and new destinations for almost all trips you take. You are also physically active at home and on trips. But, unlike your pure Venturer friends, you don’t want to take such extreme vacations and are more likely to plan your trips-set an itinerary of places you want to visit and schedules when you will be there. You also have more company. About 17% of the population has a personality that matches yours, vs. only 4% for pure Venturers.</p>");
 	
 	getFareResults();
 }
 
 
 function showVoyagers(){
-	$("#persona").append("<h2>You are a <b>Voyager</b></h2>");
-	$("#persona").append("<p>By definition, you fit between Venturer and Traditional but with a leaning towards the Venturer side. Compared to other groups, you have lots of company. Three out of ten travelers (30%) place in your group, making you one of the largest segments of travelers. As a result, the majority of travel providers-airlines, resorts, rental car companies, tour operators, cruise lines, and others- place you at the top of their list of persons they want to reach and motivate to travel.</p>");
+	$("#persona").html("<h2>You are a <b>Voyager</b></h2><p>Compared to other groups, you have lots of company. Three out of ten travelers (30%) place in your group, making you one of the largest segments of travelers. As a result, the majority of travel providers-airlines, resorts, rental car companies, tour operators, cruise lines, and others- place you at the top of their list of persons they want to reach and motivate to travel.</p>");
 
 	getFareResults();
 }
 
 function showTraditionals(){
-	$("#persona").append("<h2>You are a <b>Traditional</b></h2>");
-	$("#persona").append("<p>If you examine the description of Venturers, you will find a personality quite the opposite of yours. You prefer a life that is more structured, stable and predictable. You would rather follow some set patterns or routines in your life so that you are more likely to know what will happen during each day and, therefore, can plan or prepare for it much better.</p>");
+	$("#question-section").fadeOut(1000);
+	$("#persona").hide();
+	$(".top-three-results").hide();
+	$("#persona").html("<h2>You are a <b>Traditional</b></h2><p>You prefer a life that is more structured, stable and predictable. You would rather follow some set patterns or routines in your life so that you are more likely to know what will happen during each day and, therefore, can plan or prepare for it much better.</p>");
+	$("#persona").fadeIn(5000);
 
-	getFareResults();
+	getFareResults("Romantic");
 }
 
 
+$("#random").on("click", showTraditionals)
 
 
 function getFareResults(persona){
@@ -78,11 +79,59 @@ function getFareResults(persona){
 
 	// calling for geoJSON
 	$.get(url, function (data) {
-		var results = JSON.parse(data);
-		console.log(results);
+		console.log(data);
+		var results = data.data;
 
+		for (var i=0; i<3; i++){
+			var city=results[i].city;
+			var lon=results[i].lon;
+			var lat=results[i].lat;
+			var fare=results[i].fares;
 
+			var lowestFare = fare[0].lowestFare;
+			var lowestFareDep = fare[0].departureDateTime;
+			var lowestFareRet = fare[0].returnDateTime;
+			 
+			var fareArray = [];
+			
+			for (var f=0; f < fare.length; f++) {
+			
+				var date = fare[f].departureDateTime.slice(5,10);
+				console.log(date);
+				var dateLowFare = parseInt(fare[f].lowestFare);
+				var dateLowNonStopFare = fare[f].lowestNonStopFare;
+
+				fareArray.push([date, dateLowFare, dateLowNonStopFare]);
+
+				// find the lowest fare
+				// see if there's more than one result
+				// if so, go through each day and compare with the lowestfare
+				// if lower than current lowestfare, update it
+				if (isNaN(fare[f].lowestFare) == false){
+					if (10 < fare[f].lowestFare && fare[f].lowestFare < lowestFare) {
+						lowestFare = fare[f].lowestFare;
+						lowestFareDep = fare[f].departureDateTime;
+						lowestFareRet = fare[f].returnDateTime;
+					}
+				}
+
+			}
+			console.log("Lowest: ");
+			console.log(lowestFare);
+			$(".top-three-results").append(
+						"<div class='top-result'><h3>" + city +
+						"</h3><p>Lowest Fare: $" + parseInt(lowestFare) + 
+						"</p><p>Departure Date: " + lowestFareDep.slice(0,10) +
+						"</p><p>Return Date: " + lowestFareRet.slice(0,10) +
+						"</p></div>")
+			console.log(lowestFareDep);
+			console.log(lowestFareRet);
+
+		}
 	})
+
+	$(".top-three-results").fadeIn(10000);
+
 }
 
 

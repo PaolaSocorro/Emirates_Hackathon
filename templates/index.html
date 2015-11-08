@@ -20,10 +20,11 @@
 		<div>
 			<label for="airportcodes">Enter Origin Airport: </label>
 			<input id="airportcodes" name="origin" tabindex="1" required>
+
+			<button id="random">Random Button for Testing</button
 		</div>
 		<div id="question-section">
 			<div id="question"></div>
-		</div>
 		<hr>
 		<div>
 			<div class="box parent-wrap" id="box1"></div>
@@ -43,18 +44,14 @@
 			<div class="box parent-wrap" id="box11"></div>
 			<div class="box parent-wrap" id="box12"></div>
 		</div>
+		</div>
 
 		<div class="results container">
 			<div id="persona">
 			</div>
 
-			<div class="first-result">
-			</div>
+			<div class="top-three-results">
 
-			<div class="second-result">
-			</div>
-
-			<div class="third-result">
 			</div>
 
 		</div>
@@ -62,44 +59,9 @@
 	</div> <!-- closing for overall container -->
 	<footer>Copyright ©Path Finder 2015 All Rights Reserved</footer>
 
-	<script>
-		var questions = {"box1": "I often buy new products before they become popular or come down in price.",
-						"box3": "I have much more energy than most persons my age.",
-						"box6": "I prefer to go to undiscovered, wild places rather than cities with big hotels and restaurants.",
-						"box8": "I prefer setting up plans and having a routine rather than spontaneity.",
-						"box9": "I am more intellectually curious than most people I know.",
-						"box12": "I believe chance has little to do with the successes I've had in my life."
-						}
-
-		$(document).ready(loadData);
-
-		function loadFirstQuestion() {
-			$('#box1').show();
-		};
-
-		function loadData() {
-			for (var i=1; i<=12; i++) {
-				if (questions['box'+i]) {
-					$('#box'+i).html('<div class="question-data">' + questions['box'+i] + '<button class="btn btn-primary" id="box' +i+ '-button1" type="button">Yes</button> <button class="btn btn-primary box' +i+ '-option2" type="button">No</button></div>')
-				}
-				// $('#box'+i).html().hide();
-			}
-		};
-
-		$('#box1-button1').on('click', function() {alert('hi!')});
-		$('#box1-button2').on('click', function() {alert('hi!')});
-
-		hideButtons();
-
-		function hideButtons() {
-				$('#box1-button1').on('click', function() {alert('hi!')});
-				// $('#box6').show();
-		};
-
-
-	</script>
+	<script src="/static/js/game.js"></script>
 
 		<!-- THIS IS LINKING SUSAN'S JS FILE -->
-		<script src="../static/quizpath.js"></script>
+		<script src="/static/quizpath.js"></script>
 </body>
 </html>

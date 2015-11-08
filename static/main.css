@@ -38,6 +38,7 @@ body {
 	z-index: 2;
 	opacity: .5;
 }
+
 .result p{
 	opacity: 1;
 }
@@ -75,4 +76,9 @@ footer {
 .ui-menu {
     background-color: #fff;
     text-align: left;
+}
+
+div.top-three-results div.top-result {
+	display: inline-block;
+	padding: 20px;
 }

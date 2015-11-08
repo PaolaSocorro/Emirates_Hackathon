@@ -78,7 +78,16 @@ footer {
     text-align: left;
 }
 
+div#persona {
+	padding: 50px;
+}
+
 div.top-three-results div.top-result {
+	display: inline-block;
+	padding: 20px;
+}
+
+div.remaining-results div.top-result {
 	display: inline-block;
 	padding: 20px;
 }

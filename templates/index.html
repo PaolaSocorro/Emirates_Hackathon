@@ -17,13 +17,12 @@
 <body>
 	<div class="container">
 		<h1>Path Finder</h1>
-		<div>
-			<label for="airportcodes">Enter Origin Airport: </label>
-			<input id="airportcodes" name="origin" tabindex="1" required>
-
-			<button id="random">Random Button for Testing</button
-		</div>
+			<button id="random">Random Button for Testing</button>
 		<div id="question-section">
+		<div>
+			<label for="airportcodes">Which city are you in now?</label><br>
+			<input id="airportcodes" name="origin" tabindex="1" required>
+		</div>
 			<div id="question"></div>
 		<hr>
 		<div>
@@ -52,6 +51,34 @@
 
 			<div class="top-three-results">
 
+			</div>
+			<button id='load-more-results'>Load More Results...</button>
+
+			<div class="remaining-results">
+			</div>
+
+
+
+			<!-- EXPERIENCES MODAL WINDOW -->
+			<div class="modal fade" id="experiences-feed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabelCity">Things To Do</h4>
+			      </div>
+
+			      <div class="modal-body">
+			      	<ul id="experiences">
+
+
+			      	</ul>
+			      </div>
+
+			      <div class="modal-footer">
+			      </div>
+			    </div>
+			  </div>
 			</div>
 
 		</div>
@@ -93,6 +120,10 @@
 		});
 
 	</script>
+
+		<!-- BOOTSTRAP -->
+		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 
 		<!-- THIS IS LINKING SUSAN'S JS FILE -->
 		<script src="../static/quizpath.js"></script>

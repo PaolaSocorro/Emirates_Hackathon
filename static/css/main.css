@@ -122,6 +122,18 @@ a {
 	color: #fff;
 	font-size: 25px;
 	font-weight: 300;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+	text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+	color: white;
+}
+
+a:visited {
+	text-decoration: none;
+	color: white;
 }
 
 div.remaining-results div.top-result {
@@ -141,4 +153,8 @@ ul#experiences li img {
 
 #homepage img {
 	margin-bottom: 20px;
+}
+
+input {
+	color: #333;
 }

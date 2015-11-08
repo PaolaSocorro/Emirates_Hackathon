@@ -41,7 +41,7 @@ $("#airportcodes").autocomplete({
 
 
 function showVenturers(){
-	$("#question-section").fadeOut(1000);
+	$("#game-container").fadeOut(1000);
 	$("#persona").hide();
 	$(".top-three-results").hide();
 	$(".remaining-results").hide();
@@ -52,7 +52,7 @@ function showVenturers(){
 }
 
 function showPioneers(){
-	$("#question-section").fadeOut(1000);
+	$("#game-container").fadeOut(1000);
 	$("#persona").hide();
 	$(".top-three-results").hide();
 	$(".remaining-results").hide();
@@ -64,7 +64,7 @@ function showPioneers(){
 
 
 function showVoyagers(){
-	$("#question-section").fadeOut(1000);
+	$("#game-container").fadeOut(1000);
 	$("#persona").hide();
 	$(".top-three-results").hide();
 	$(".remaining-results").hide();
@@ -75,7 +75,7 @@ function showVoyagers(){
 }
 
 function showTraditionals(){
-	$("#question-section").fadeOut(1000);
+	$("#game-container").fadeOut(1000);
 	$("#persona").hide();
 	$(".top-three-results").hide();
 	$(".remaining-results").hide();
@@ -270,7 +270,7 @@ $(document).on('click', '.experiences-btn', function() {
 
 				$("ul#experiences").append("<li><h3>" + name + "</h3><p>" + 
 					excerpt + "</p><p>Duration: " + duration + 
-					"</p><p>Price: $" + price + "</p><img src='" + photo_src + 
+					"minutes</p><p>Price: $" + price + "</p><img src='" + photo_src + 
 					"'></li><hr>");
 			};
 			

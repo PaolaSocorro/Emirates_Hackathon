@@ -17,6 +17,10 @@ p, h1, h2 {
 
 }
 
+.modal p {
+	color: #000;
+}
+
 h1 {
 	margin-bottom: 30px;
 	z-index: 2;
@@ -154,7 +158,7 @@ ul#experiences li {
 
 ul#experiences li img {
 	display: inline;
-	width: 250px;
+	width: 225px;
 }
 
 #homepage img {

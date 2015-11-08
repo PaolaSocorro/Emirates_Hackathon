@@ -1,6 +1,4 @@
-import personas
 from model import AirportCode, connect_to_db, db, Experience
-
 from flask import Flask, render_template, redirect, request, flash, session, jsonify
 
 import requests

@@ -75,10 +75,16 @@ function getFareResults(persona){
 
 	// calling for geoJSON
 	$.get(url, function (data) {
-		var results = data;
-		console.log(results);
+		console.log(data);
+		var results = data.data;
 
-
+		for (var i=0; i<3; i++){
+			var city=results[i].city;
+			var lon=results[i].lon;
+			var lat=results[i].lat;
+			var fares=results[i].fares;
+			console.log(city);
+		}
 	})
 }
 

@@ -59,16 +59,26 @@
 
 		function loadFirstQuestion() {
 			$('#box1').show();
-		}
+		};
 
 		function loadData() {
 			for (var i=1; i<=12; i++) {
 				if (questions['box'+i]) {
-					$('#box'+i).html('<div class="question-data">' + questions['box'+i] + '<button class="btn btn-primary" type="button" id="option1">Yes</button> <button class="btn btn-primary" type="button" id="option2">No</button></div>')
+					$('#box'+i).html('<div class="question-data">' + questions['box'+i] + '<button class="btn btn-primary" id="box' +i+ '-button1" type="button">Yes</button> <button class="btn btn-primary box' +i+ '-option2" type="button">No</button></div>')
 				}
-				$('#box'+i).html().hide();
+				// $('#box'+i).html().hide();
 			}
-		}
+		};
+
+		$('#box1-button1').on('click', function() {alert('hi!')});
+		$('#box1-button2').on('click', function() {alert('hi!')});
+
+		hideButtons();
+
+		function hideButtons() {
+				$('#box1-button1').on('click', function() {alert('hi!')});
+				// $('#box6').show();
+		};
 
 
 	</script>

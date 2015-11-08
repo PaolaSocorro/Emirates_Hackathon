@@ -77,3 +77,8 @@ footer {
     background-color: #fff;
     text-align: left;
 }
+
+div.top-three-results div.top-result {
+	display: inline-block;
+	padding: 20px;
+}

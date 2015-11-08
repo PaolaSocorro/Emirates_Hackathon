@@ -55,7 +55,11 @@ function showVoyagers(){
 }
 
 function showTraditionals(){
+	$("#question-section").fadeOut(1000);
+	$("#persona").hide();
+	$(".top-three-results").hide();
 	$("#persona").html("<h2>You are a <b>Traditional</b></h2><p>You prefer a life that is more structured, stable and predictable. You would rather follow some set patterns or routines in your life so that you are more likely to know what will happen during each day and, therefore, can plan or prepare for it much better.</p>");
+	$("#persona").fadeIn(5000);
 
 	getFareResults("Romantic");
 }
@@ -82,10 +86,52 @@ function getFareResults(persona){
 			var city=results[i].city;
 			var lon=results[i].lon;
 			var lat=results[i].lat;
-			var fares=results[i].fares;
-			console.log(city);
+			var fare=results[i].fares;
+
+			var lowestFare = fare[0].lowestFare;
+			var lowestFareDep = fare[0].departureDateTime;
+			var lowestFareRet = fare[0].returnDateTime;
+			 
+			var fareArray = [];
+			
+			for (var f=0; f < fare.length; f++) {
+			
+				var date = fare[f].departureDateTime.slice(5,10);
+				console.log(date);
+				var dateLowFare = parseInt(fare[f].lowestFare);
+				var dateLowNonStopFare = fare[f].lowestNonStopFare;
+
+				fareArray.push([date, dateLowFare, dateLowNonStopFare]);
+
+				// find the lowest fare
+				// see if there's more than one result
+				// if so, go through each day and compare with the lowestfare
+				// if lower than current lowestfare, update it
+				if (isNaN(fare[f].lowestFare) == false){
+					if (10 < fare[f].lowestFare && fare[f].lowestFare < lowestFare) {
+						lowestFare = fare[f].lowestFare;
+						lowestFareDep = fare[f].departureDateTime;
+						lowestFareRet = fare[f].returnDateTime;
+					}
+				}
+
+			}
+			console.log("Lowest: ");
+			console.log(lowestFare);
+			$(".top-three-results").append(
+						"<div class='top-result'><h3>" + city +
+						"</h3><p>Lowest Fare: $" + parseInt(lowestFare) + 
+						"</p><p>Departure Date: " + lowestFareDep.slice(0,10) +
+						"</p><p>Return Date: " + lowestFareRet.slice(0,10) +
+						"</p></div>")
+			console.log(lowestFareDep);
+			console.log(lowestFareRet);
+
 		}
 	})
+
+	$(".top-three-results").fadeIn(10000);
+
 }
 
 

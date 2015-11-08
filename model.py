@@ -23,7 +23,17 @@ class AirportCode(db.Model):
 
         return "<Object Airport Code:%s for %s>" % (self.code, self.location)
 
+class Experience(db.Model):
+    """Xola experiences"""
+    __tablename__ = "expereinces"
 
+    id = db.Column(db.String(50), primary_key=True)
+    longitude = db.Column(db.Float)
+    latitude = db.Column(db.Float)
+
+    def __repr__(self):
+
+        return "<Object experience Code: %s>" % (self.id)
 
 
 

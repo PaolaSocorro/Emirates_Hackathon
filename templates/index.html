@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+	<title>Emirates Hackathon</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Emirates Hackathon</h1>
+		<div id="question-section">
+			Question: <div id="question"></div>
+			<div class="answers">
+				<button type="button" id="option1">Yes</button> | <span class="option2"><a href="#_">No</a></span>
+			</div>
+		</div>
+		<hr>
+		<div>
+			<div class="box" id="first_box" data-question="Do you like the outdoors?"></div>
+			<div class="box" id="second_box" data-question="You come across a cat, do you pet it?"></div>
+		</div>
+		<div>
+			<div class="box" id="third_box" data-question="The cat is actually a tiger. What do you do?"></div>
+			<div class="box" id="fourth_box" data-question="Would you ride the scary swing?"></div>
+		</div>
+
+	</div>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script>
+		$(document).ready(firstQ);
+
+		function firstQ() {
+			$('#first_box').css('background-color','#80ff95');
+			$('#question').html($('#first_box').attr('data-question'));
+			checkAnswer();
+		}
+
+		function checkAnswer() {
+			$('#option1').on('click', function() {
+				$('#second_box').css('background-color','#80ff95');
+				$('#question').empty();
+				loadNextQuestion();
+
+			});
+			$('#option2').on('click', function() {
+				$('#third_box').css('background-color','#80ff95');
+				$('#question').html($('#third-box').attr('data-question'));
+			});
+		}
+
+		function loadNextQuestion() {
+			$('#question').html($('#second-box').attr('data-question'));
+
+		}
+
+		$('.box').on('click', function() {
+			$('#question').empty();
+			$(this).css('background-color','#80ff95');
+			$('#question').html($(this).attr('data-question'));
+		});
+
+	</script>
+</body>
+</html>

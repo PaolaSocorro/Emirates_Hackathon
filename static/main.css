@@ -1,11 +1,12 @@
 body {
 	text-align: center;
-	margin: 0 auto;
+	margin: 0 20px;
 	margin-bottom: 50px;
 }
-.container{
-	margin: 0;
+.resultcontainer{
 	padding: 0;
+	margin: 0;
+
 }
 
 #map { 
@@ -31,7 +32,6 @@ body {
 .result {
 	width: 500px;
 	height: 150px;
-	/*border: 3px solid #ccc;*/
 	background-color: #ccc;
 	margin: 0 auto;
 	margin-top: 10px;
@@ -79,7 +79,16 @@ footer {
     text-align: left;
 }
 
+div#persona {
+	padding: 50px;
+}
+
 div.top-three-results div.top-result {
+	display: inline-block;
+	padding: 20px;
+}
+
+div.remaining-results div.top-result {
 	display: inline-block;
 	padding: 20px;
 }

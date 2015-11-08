@@ -1,10 +1,11 @@
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2
 
-import os
+import os, requests, json
 
 db = SQLAlchemy()
 
+# XOLA_API_KEY = os.environ["XOLA_API_KEY"]
 
 # this is for airport codes database
 class AirportCode(db.Model):
@@ -34,6 +35,36 @@ class Experience(db.Model):
     def __repr__(self):
 
         return "<Object experience Code: %s>" % (self.id)
+
+    @classmethod
+    def get_experience_by_lat_long(cls, original_lat, original_lng):
+        """given the original latitude and longitude, output a list of experience objects that are within the range"""
+        lower_lat = original_lat - 1
+        higher_lat = original_lat + 1
+
+        lower_lng = original_lng - 1
+        higher_lng = original_lng + 1
+
+        query_lat_lng = cls.query.filter(cls.latitude <= higher_lat, cls.latitude >= lower_lat,
+                                         cls.longitude <= higher_lng, cls.longitude >= lower_lng).all()
+
+        return query_lat_lng
+
+    @classmethod
+    def get_experience_by_id(cls, id):
+        return cls.query.get(id)
+
+    def get_detailed_info(self):
+        """get the detailed info for a specific experience object"""
+        headers = {
+        'Content-type':'application/json'
+    }
+        url = 'https://dev.xola.com/api/experiences/' + self.id
+        r = requests.get(url, headers=headers, verify=False)
+        experience = json.loads(r.text)
+
+        return experience
+
 
 
 

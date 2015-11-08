@@ -211,7 +211,7 @@ function getFareResults(persona){
 
 
 
-	$(".top-three-results").fadeIn(7000, function() {
+	$(".top-three-results").fadeIn(4000, function() {
 		$("#load-more-results").show();
 	});
 

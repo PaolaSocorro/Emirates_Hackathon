@@ -3,70 +3,40 @@
 <head>
 	<title>Path Finder</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="static/main.css">
 </head>
 <body>
 	<div class="container">
 		<h1>Path Finder</h1>
 		<div id="question-section">
-			Question: <div id="question"></div>
+			<div id="question"></div>
 			<div class="answers">
-				<button type="button" id="option1">Yes</button> | <span class="option2"><a href="#_">No</a></span>
+				<button class="btn btn-primary" type="button" id="option1">Yes</button> <button class="btn btn-primary" type="button" id="option2">No</button>
 			</div>
 		</div>
 		<hr>
 		<div>
 			<div class="box parent-wrap" id="box1" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"></div>
 			<div class="box parent-wrap" id="box2" data-question="---"></div>
-			<div class="box parent-wrap" id="box3" data-question="---"></div>
+			<div class="box parent-wrap" id="box3" data-question="I have much more energy than most persons my age."></div>
 			<div class="box parent-wrap" id="box4" data-question="---"></div>
 		</div>
 		<div>
 			<div class="box parent-wrap" id="box5" data-question="---"></div>
 			<div class="box parent-wrap" id="box6" data-question="I prefer to go to undiscovered, wild places rather than cities with big hotels and restaurants."></div>
 			<div class="box parent-wrap" id="box7" data-question="---"></div>
-			<div class="box parent-wrap" id="box8" data-question="---"></div>
+			<div class="box parent-wrap" id="box8" data-question="I prefer setting up plans and having a routine rather than spontaneity."></div>
 		</div>
 		<div>
-			<div class="box parent-wrap" id="box9" data-question="---"></div>
-			<div class="box parent-wrap" id="box10" data-question="Would you ride the scary swing?"></div>
+			<div class="box parent-wrap" id="box9" data-question="I am more intellectually curious than most people I know."></div>
+			<div class="box parent-wrap" id="box10" data-question="---"></div>
 			<div class="box parent-wrap" id="box11" data-question="---"></div>
-			<div class="box parent-wrap" id="box12" data-question="---"></div>
-		</div>
-		<div>
-			<div class="box parent-wrap" id="box13" data-question="The cat is actually a tiger. What do you do?"></div>
-			<div class="box parent-wrap" id="box14" data-question="Would you ride the scary swing?"></div>
-			<div class="box parent-wrap" id="box15" data-question="The cat is actually a tiger. What do you do?"></div>
-			<div class="box parent-wrap" id="box16" data-question="Would you ride the scary swing?"></div>
+			<div class="box parent-wrap" id="box12" data-question="I believe chances has little to do with the successes I've had in my life."></div>
 		</div>
 	</div>
+	<footer>Copyright ©Path Finder 2015 All Rights Reserved</footer>
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script>
-		// $(document).ready(firstQ);
-
-		// function firstQ() {
-		// 	$('#first_box').css('background-color','#80ff95');
-		// 	$('#question').html($('#first_box').attr('data-question'));
-		// 	checkAnswer();
-		// }
-
-		// function checkAnswer() {
-		// 	$('#option1').on('click', function() {
-		// 		$('#second_box').css('background-color','#80ff95');
-		// 		$('#question').empty();
-		// 		loadNextQuestion();
-
-		// 	});
-		// 	$('#option2').on('click', function() {
-		// 		$('#third_box').css('background-color','#80ff95');
-		// 		$('#question').html($('#third-box').attr('data-question'));
-		// 	});
-		// }
-
-		// function loadNextQuestion() {
-		// 	$('#question').html($('#second-box').attr('data-question'));
-
-		// }
 
 		$('.box').on('click', function() {
 			$('#question').empty();
@@ -74,6 +44,8 @@
 			$('#question').html($(this).attr('data-question'));
 			$(this).html($(this).attr('data-question'));
 		});
+
+
 
 	</script>
 </body>

@@ -90,6 +90,7 @@ div#persona {
 div.top-three-results div.top-result {
 	display: inline-block;
 	padding: 20px;
+	border-radius: 20px;
 }
 
 #game-container {
@@ -110,6 +111,7 @@ div.top-three-results div.top-result {
 div.remaining-results div.top-result {
 	display: inline-block;
 	padding: 20px;
+	border-radius: 20px;
 }
 
 ul#experiences li {

@@ -61,3 +61,13 @@ h1 {
 footer {
 	margin-top: 20px;
 }
+
+.selected {
+	background-color: #80ff95;
+}
+
+.question-data {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}

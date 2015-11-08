@@ -12,6 +12,10 @@ p, h1, h2 {
 	color: #fff;
 }
 
+.modal {
+	text-align: center;
+}
+
 .modal, button {
 	color: #333;
 
@@ -102,6 +106,7 @@ footer {
 .ui-menu {
     background-color: #fff;
     text-align: left;
+    color: #000;
 }
 
 div#persona {
@@ -112,6 +117,7 @@ div.top-three-results div.top-result {
 	display: inline-block;
 	padding: 20px;
 	border-radius: 20px;
+
 }
 
 #game-container {
@@ -148,6 +154,7 @@ a:visited {
 div.remaining-results div.top-result {
 	display: inline-block;
 	padding: 20px;
+	margin: 20px;
 	border-radius: 20px;
 }
 

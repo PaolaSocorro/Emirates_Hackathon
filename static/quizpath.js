@@ -270,7 +270,7 @@ $(document).on('click', '.experiences-btn', function() {
 
 				$("ul#experiences").append("<li><h3>" + name + "</h3><p>" + 
 					excerpt + "</p><p>Duration: " + duration + 
-					"minutes</p><p>Price: $" + price + "</p><img src='" + photo_src + 
+					" minutes</p><p>Price: $" + price + "</p><img src='" + photo_src + 
 					"'></li><hr>");
 			};
 			

@@ -10,7 +10,7 @@ import geojson
 import os
 
 
-# sabre_access_token = os.environ["SABRE_ACCESS_TOKEN"]
+sabre_access_token = os.environ["SABRE_ACCESS_TOKEN"]
 
 
 app = Flask(__name__)
@@ -142,7 +142,7 @@ def airfare_search():
 		city = item["city"]
 
 		# some results don't have a city name
-		if city == None:
+		if city == None or city == "":
 			continue
 
 		# must double check if valid coords. API sometimes returns invalid destinations

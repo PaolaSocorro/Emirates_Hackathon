@@ -87,3 +87,12 @@ div.remaining-results div.top-result {
 	display: inline-block;
 	padding: 20px;
 }
+
+ul#experiences li {
+	list-style-type: none;
+}
+
+ul#experiences li img {
+	display: inline;
+	width: 200px;
+}

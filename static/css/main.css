@@ -98,7 +98,6 @@ footer {
 .ui-menu {
     background-color: #fff;
     text-align: left;
-    color: #000;
 }
 
 div#persona {
@@ -116,7 +115,7 @@ div.top-three-results div.top-result {
 }
 
 #homepage {
-	height: 500px;
+	height: 300px;
 	/*max-width: 900px;*/
 	width: 100%;
 	margin-top: 200px;

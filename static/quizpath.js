@@ -41,22 +41,37 @@ $("#airportcodes").autocomplete({
 
 
 function showVenturers(){
+	$("#question-section").fadeOut(1000);
+	$("#persona").hide();
+	$(".top-three-results").hide();
+	$(".remaining-results").hide();
 	$("#persona").html("<h2>You are a <b>Venturer</b></h2><p>Leisure travel occupies a central place in your life. You go to more places, more often and participate in more unique experiences than anyone else. That’s why I call you a Venturer-someone who ventures forth very eagerly and excitedly. You fit in a small group. Only about 4% of all travelers share your extreme love of going to out of the way places and constantly seeking out of the ordinary adventures.</p>");
+	$("#persona").fadeIn(5000);
 
-	getFareResults(); // NEED TO ADD A THEME FOR EACH PERSONA
+	getFareResults("Carribean"); // NEED TO ADD A THEME FOR EACH PERSONA
 }
 
 function showPioneers(){
+	$("#question-section").fadeOut(1000);
+	$("#persona").hide();
+	$(".top-three-results").hide();
+	$(".remaining-results").hide();
 	$("#persona").html("<h2>You are a <b>Pioneer</b></h2><p>You like to travel, especially to foreign destinations and you seek new experiences and new destinations for almost all trips you take. You are also physically active at home and on trips. But, unlike your pure Venturer friends, you don’t want to take such extreme vacations and are more likely to plan your trips-set an itinerary of places you want to visit and schedules when you will be there. You also have more company. About 17% of the population has a personality that matches yours, vs. only 4% for pure Venturers.</p>");
+	$("#persona").fadeIn(5000);
 	
-	getFareResults();
+	getFareResults("Outdoors");
 }
 
 
 function showVoyagers(){
+	$("#question-section").fadeOut(1000);
+	$("#persona").hide();
+	$(".top-three-results").hide();
+	$(".remaining-results").hide();
 	$("#persona").html("<h2>You are a <b>Voyager</b></h2><p>Compared to other groups, you have lots of company. Three out of ten travelers (30%) place in your group, making you one of the largest segments of travelers. As a result, the majority of travel providers-airlines, resorts, rental car companies, tour operators, cruise lines, and others- place you at the top of their list of persons they want to reach and motivate to travel.</p>");
+	$("#persona").fadeIn(5000);
 
-	getFareResults();
+	getFareResults("Beach");
 }
 
 function showTraditionals(){
@@ -67,7 +82,7 @@ function showTraditionals(){
 	$("#persona").html("<h2>You are a <b>Traditional</b></h2><p>You prefer a life that is more structured, stable and predictable. You would rather follow some set patterns or routines in your life so that you are more likely to know what will happen during each day and, therefore, can plan or prepare for it much better.</p>");
 	$("#persona").fadeIn(5000);
 
-	getFareResults("Romantic");
+	getFareResults("Disney");
 }
 
 
@@ -196,7 +211,7 @@ function getFareResults(persona){
 
 
 
-	$(".top-three-results").fadeIn(10000, function() {
+	$(".top-three-results").fadeIn(7000, function() {
 		$("#load-more-results").show();
 	});
 
@@ -241,6 +256,17 @@ $(document).on('click', '.experiences-btn', function() {
 	// calling for geoJSON
 	$.get(url, function (data) {
 		console.log(data);
+
+		var experiences = data;
+
+		for (var i=0; i < experiences.length; i++) {
+			var name 
+			var img_url
+			var excerpt
+			var price 
+
+			$("#experiences").append("");
+		}
 
 	})
 });

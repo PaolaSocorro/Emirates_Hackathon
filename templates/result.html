@@ -9,11 +9,11 @@
     <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
 </head>
 <body>
-    <div class="container">
+    <div class="resultcontainer">
 
         <!-- <button id="random">Random Button for Testing</button> -->
 
-        <div class="results container" >
+        <div class="resultscontainer" >
             <div id="persona">
             </div>
 
@@ -44,7 +44,7 @@
         L.mapbox.accessToken = 'pk.eyJ1IjoicGFyb21pIiwiYSI6ImNpZ3B5NHRwcTAxbjF1Nm0xbjhpaHdjaTkifQ.rDCvdPUh5POYzuXrixzSKw';
 
         var map = L.mapbox.map('map', 'paromi.o3p67opg');
-        omnivore.csv('data/testplaces.csv').addTo(map);
+        // omnivore.csv('data/testplaces.csv').addTo(map);
 
         // omnivore.csv('/data/testplaces.csv').addTo(map);
 
@@ -61,7 +61,7 @@
                 if (++i > markers.length - 1) i = 0;
                 map.setView(markers[i].getLatLng(), 5);
                 markers[i].openPopup();
-                window.setTimeout(run, 3000);
+                window.setTimeout(run, 6000);
             }
             run();
         }

@@ -105,7 +105,8 @@ def airfare_search():
 	# max_budget = request.args.get('max-budget')
 
 	# TEST INPUT
-	origin = "SFO"
+	origin = request.args.get('origin')
+	origin = origin[1:4]
 	earliest_departure = "2016-01-12"
 	latest_departure = "2016-01-31"
 	length_of_stay = "3"

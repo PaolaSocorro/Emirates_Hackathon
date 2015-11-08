@@ -271,14 +271,16 @@ $(document).on('click', '.experiences-btn', function() {
 				$("ul#experiences").append("<li><h3>" + name + "</h3><p>" + 
 					excerpt + "</p><p>Duration: " + duration + 
 					"</p><p>Price: $" + price + "</p><img src='" + photo_src + 
-					"'></li>");
+					"'></li><hr>");
 			};
 			
 		} else {
-			$("ul#experiences").append("<p>Sorry, Xola currently doesn't have any experiences to offer at this location. Happy exploring!</p>")
+			$("ul#experiences").append("<p>Sorry, Xola currently doesn't have any experiences to offer at this location. Happy exploring!</p>");
 		}
 
 
+	}).fail(function() {
+		$("ul#experiences").append("<p>Sorry, Xola currently doesn't have any experiences to offer at this location. <br>Happy exploring!</p>");
 	})
 });
 

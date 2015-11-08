@@ -14,14 +14,20 @@ body {
 }
 
 h1 {
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 }
 
 #question {
 	color: #666;
 	font-size: 14px;
+	margin: 10px;
+	height: 20px;
 }
 
 .parent-wrap {
 	vertical-align: top;
+}
+
+footer {
+	margin-top: 20px;
 }

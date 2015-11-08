@@ -260,7 +260,7 @@ $(document).on('click', '.experiences-btn', function() {
 
 		var experiences = data;
 
-		if (data != null) {
+		if (data != 'undefined') {
 			for (var k in experiences) {
 				var name = experiences[k].name
 				var excerpt = experiences[k].excerpt

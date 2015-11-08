@@ -57,7 +57,7 @@ function showVoyagers(){
 function showTraditionals(){
 	$("#persona").html("<h2>You are a <b>Traditional</b></h2><p>You prefer a life that is more structured, stable and predictable. You would rather follow some set patterns or routines in your life so that you are more likely to know what will happen during each day and, therefore, can plan or prepare for it much better.</p>");
 
-	getFareResults("Disney");
+	getFareResults("Romantic");
 }
 
 
@@ -75,7 +75,7 @@ function getFareResults(persona){
 
 	// calling for geoJSON
 	$.get(url, function (data) {
-		var results = JSON.parse(data);
+		var results = data;
 		console.log(results);
 
 

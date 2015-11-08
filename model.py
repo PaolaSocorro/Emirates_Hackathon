@@ -46,7 +46,7 @@ class Experience(db.Model):
         higher_lng = original_lng + 1
 
         query_lat_lng = cls.query.filter(cls.latitude <= higher_lat, cls.latitude >= lower_lat,
-                                         cls.longitude <= higher_lng, cls.longitude >= lower_lng).all()
+                                         cls.longitude <= higher_lng, cls.longitude >= lower_lng).limit(5).all()
 
         return query_lat_lng
 

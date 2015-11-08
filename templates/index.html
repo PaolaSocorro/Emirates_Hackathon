@@ -10,123 +10,44 @@
 		<h1>Path Finder</h1>
 		<div id="question-section">
 			<div id="question"></div>
-			<div class="answers">
-				<button class="btn btn-primary" type="button" id="option1" next="">Yes</button> <button class="btn btn-primary" type="button" id="option2" next="">No</button>
-			</div>
 		</div>
 		<hr>
 		<div>
-			<div class="box parent-wrap" id="box1" data-question="I often buy new products before they become popular or come down in price."></div>
-			<div class="box parent-wrap" id="box2" data-question="---"></div>
-			<div class="box parent-wrap" id="box3" data-question="I have much more energy than most persons my age."></div>
-			<div class="box parent-wrap" id="box4" data-question="---"></div>
+			<div class="box parent-wrap" id="box1"></div>
+			<div class="box parent-wrap" id="box2"></div>
+			<div class="box parent-wrap" id="box3"></div>
+			<div class="box parent-wrap" id="box4"></div>
 		</div>
 		<div>
-			<div class="box parent-wrap" id="box5" data-question="---"></div>
-			<div class="box parent-wrap" id="box6" data-question="I prefer to go to undiscovered, wild places rather than cities with big hotels and restaurants."></div>
-			<div class="box parent-wrap" id="box7" data-question="---"></div>
-			<div class="box parent-wrap" id="box8" data-question="I prefer setting up plans and having a routine rather than spontaneity."></div>
+			<div class="box parent-wrap" id="box5"></div>
+			<div class="box parent-wrap" id="box6"></div>
+			<div class="box parent-wrap" id="box7"></div>
+			<div class="box parent-wrap" id="box8"></div>
 		</div>
 		<div>
-			<div class="box parent-wrap" id="box9" data-question="I am more intellectually curious than most people I know."></div>
-			<div class="box parent-wrap" id="box10" data-question="---"></div>
-			<div class="box parent-wrap" id="box11" data-question="---"></div>
-			<div class="box parent-wrap" id="box12" data-question="I believe chance has little to do with the successes I've had in my life."></div>
+			<div class="box parent-wrap" id="box9"></div>
+			<div class="box parent-wrap" id="box10"></div>
+			<div class="box parent-wrap" id="box11"></div>
+			<div class="box parent-wrap" id="box12"></div>
 		</div>
 	</div>
 	<footer>Copyright ©Path Finder 2015 All Rights Reserved</footer>
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script>
+		var questions = {"box1": "I often buy new products before they become popular or come down in price.",
+						"box3": "I have much more energy than most persons my age.",
+						"box6": "I prefer to go to undiscovered, wild places rather than cities with big hotels and restaurants.",
+						"box8": "I prefer setting up plans and having a routine rather than spontaneity.",
+						"box9": "I am more intellectually curious than most people I know.",
+						"box12": "I believe chance has little to do with the successes I've had in my life."
+						}
+
 		$(document).ready(loadFirstQuestion);
 
 		function loadFirstQuestion() {
-			$('#box1').css('background-color','#80ff95');
-			$('#question').html($('#box1').attr('data-question'));
-			$('#box1').html($('#box1').attr('data-question'));
-			$('#option1').attr('next', 'q2');
-			$('#option2').attr('next', 'q2');
-		}
+			$('#box1').addClass('selected');
+			$('#box1').html('<div class="question-data">' + questions['box1'] + '<button class="btn btn-primary" type="button" id="option1">Yes</button> <button class="btn btn-primary" type="button" id="option2">No</button></div>');
 
-		$('button').on('click', showNextQuestion);
-
-
-		function showNextQuestion() {
-			$('#question').empty();
-			console.log($('#option1').attr('next'));
-			if ($('#option1').attr('next') == 'q2') {
-				$('#question').empty();
-				$('#question').html($('#box3').attr('data-question'));
-				$('#box6').css('background-color','#80ff95');
-				$('#box6').html($('#box6').attr('data-question'));
-				$('#option1').attr('next', 'q3');
-				$('#option2').attr('next', 'q5');
-			}
-			$('#option1').on('click', showOption1);
-			$('#option2').on('click', showOption2);
-		}
-
-		function showOption1() {
-			$('#question').empty();
-			if ($('#option1').attr('next') == 'q3') {
-				$('#question').empty();
-				$('#question').html($('#box6').attr('data-question'));
-				$('#box6').css('background-color','#80ff95');
-				$('#box6').html($('#box3').attr('data-question'));
-				$('#option1').attr('next', 'q4');
-				$('#option2').attr('next', 'q4');
-			}
-			else {
-				alert('hi');
-			}
-			if ($('#option1').attr('next') == 'q4') {
-				$('#question').empty();
-				$('#question').html($('#box6').attr('data-question'));
-				$('#box3').css('background-color','#80ff95');
-				$('#box3').html($('#box3').attr('data-question'));
-				$('#option1').on('click', function() {
-					$('button').hide();
-					$('#question').append('<a href="/pioneers.html">See results</a>');
-				});
-				$('#option2').on('click', function() {
-					$('#question').append('<a href="/venturers.html">See results</a>')
-				});
-			}
-			$('button').on('click', showFollowingQuestion);
-		}
-
-		function showOption2() {
-			$('#question').empty();
-			console.log($('#option2').attr('next'));
-			if ($('#option2').attr('next') == 'q5') {
-				$('#question').empty();
-				$('#question').html($('#box9').attr('data-question'));
-				$('#box9').css('background-color','#80ff95');
-				$('#box9').html($('#box3').attr('data-question'));
-				$('#option1').attr('next', 'q4');
-				$('#option2').attr('next', 'q4');
-			}
-			else {
-				alert('hello');
-			}
-			if ($('#option2').attr('next') == 'q4') {
-				$('#question').empty();
-				$('#question').html($('#box8').attr('data-question'));
-				$('#box8').css('background-color','#80ff95');
-				$('#box8').html($('#box3').attr('data-question'));
-				$('#option1').on('click', function() {
-					$('button').hide();
-					$('#question').append('<a href="/pioneers.html">See results</a>');
-				});
-				$('#option2').on('click', function() {
-					$('#question').append('<a href="/venturers.html">See results</a>')
-				});
-			};
-			$('button').on('click', showFollowingQuestion);
-		}
-
-		function showFollowingQuestion() {
-			$('#option1').on('click', showOption1);
-			$('#option2').on('click', showOption2);
 		}
 
 

@@ -1,4 +1,3 @@
-import personas
 from model import AirportCode, connect_to_db, db, Experience
 from flask import Flask, render_template, redirect, request, flash, session, jsonify
 
@@ -24,18 +23,41 @@ def homepage():
 
 	return render_template("index.html")
 
+
+@app.route("/autocomplete")
+def autocomplete():
+	"""From airport codes database, provide autocomplete in user's arrival input using AJAX."""
+
+	search_value = request.args.get('term')
+
+	query = AirportCode.query.filter(db.or_(AirportCode.code.ilike("%%%s%%" % (search_value)), 
+											AirportCode.location.ilike("%%%s%%" % (search_value)))).all()
+	
+	suggestion_list = []
+
+	for item in query:
+		code = item.code
+		location = item.location
+		suggestion_string = "(%s) %s" %(code, location)
+		suggestion_list.append(suggestion_string)
+	
+	# print suggestion_list
+	
+	return jsonify(data=suggestion_list)
+	
+
 @app.route("/persona")
 def get_personas():
 # places format is as follows: international, city/country, score, lon, lat 
-	results = {'voyager': [[1, 'Czech Republic', "PRG", 9.0, 14.2600002, 50.1007996], 
-							[1, 'Ireland', "DUB", 7.5, -6.249909800000069, 53.42644809999999], 
+	results = {'voyager': [[1, 'Czech Republic', "PRG", 9.0, 14.2600002, 50.1007996, "img/voyager_czech.jpg"], 
+							[1, 'Ireland', "DUB", 7.5, -6.249909800000069, 53.42644809999999, "img/voyager_ireland.jpg"], 
 							[1, 'Prince Edward Island, Canada',"YYG", 9.9, -63.1211014, 46.2900009]], 
 				'venturer': [[1, 'South Africa',"CPT", 9.5, 18.6016998, -33.9648018], 
 							[1, 'Victoria, British Columbia, Canada', "YYJ", 8.5, -123.4302928, 48.6402067], 
 							[1, 'Kenya', "NBO", 9.5, 36.927109, -1.333731]], 
-				'traditional': [[1, 'Vancouver, British Columbia, Canada', "YVR", 8.0, -123.1775716, 49.1959446], 
-								[1, 'Australia',"CBR", 8.5, 149.1950073, -35.3069], 
-								[1, 'London, England', "LCY", 7.0, 0.055278, 51.505268]], 
+				'traditional': [[1, 'Vancouver, British Columbia, Canada', "YVR", 8.0, -123.1775716, 49.1959446, "img/traditional_vanouver.jpg"], 
+								[1, 'Australia',"CBR", 8.5, 149.1950073, -35.3069, "img/traditional_australia.jpg"], 
+								[1, 'London, England', "LCY", 7.0, 0.055278, 51.505268, "img/traditional_london.jpg"]], 
 				'pioneer': [[1, 'Peru', "LIM", 9.5, -77.114304, -12.021800], 
 							[1, 'Ireland', "DUB", 7.5, -6.249909800000069, 53.42644809999999], 
 							[1, 'British Columbia, Canada', "YYJ", 9.9, -123.1775716, 49.1959446]]}
@@ -52,7 +74,8 @@ def get_personas():
 			"name": item[1],
 			"aiportcode": item[2],
 			"lon": item[4],
-			"lat": item[5]
+			"lat": item[5],
+			"img_url": item[6]
 		}
 		top_3_dict.append(one_place)
 
@@ -87,7 +110,7 @@ def airfare_search():
 	latest_departure = "2016-01-31"
 	length_of_stay = "3"
 	max_budget = "1000"
-	theme = "Outdoors"
+	theme = request.args.get("persona")
 
 
 	headers = {"Authorization": sabre_access_token}

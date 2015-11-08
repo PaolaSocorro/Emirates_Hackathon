@@ -10,24 +10,61 @@
 </head>
 <body>
     <div class="container">
-        <h1>Persona Type</h1>
+
+        <!-- <button id="random">Random Button for Testing</button> -->
+
+        <div class="results container" >
+            <div id="persona">
+            </div>
+
+            <div class="top-three-results">
+
+            </div>
+
+        </div>
 
         <div>
-            {%for destination in result%}
+            {%for persona in result%}
+                {%for destination in result[persona]%}
+                    <div class="result parent-wrap">
+                        <p>{{result[persona][destination]}}</p>
+                    </div>
 
-                <div class="result parent-wrap">
-                    <p>{{result[destination]}}</p>
-                </div>
+                {%endfor%}
 
             {%endfor%}
 
         </div>
 
+        <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+
         <div id='map'></div>
+        
         <script>
         L.mapbox.accessToken = 'pk.eyJ1IjoicGFyb21pIiwiYSI6ImNpZ3B5NHRwcTAxbjF1Nm0xbjhpaHdjaTkifQ.rDCvdPUh5POYzuXrixzSKw';
-        var map = L.mapbox.map('map', 'paromi.o3p67opg')
-            .setView([40, -74.50], 9);
+
+        var map = L.mapbox.map('map', 'paromi.o3p67opg');
+        omnivore.csv('data/testplaces.csv').addTo(map);
+
+        // omnivore.csv('/data/testplaces.csv').addTo(map);
+
+        // Open popup when user mouses over a marker
+        map.featureLayer.on('ready', function(e) {
+            var markers = [];
+            this.eachLayer(function(marker) { markers.push(marker); });
+            cycle(markers);
+        });
+
+        function cycle(markers) {
+            var i = 0;
+            function run() {
+                if (++i > markers.length - 1) i = 0;
+                map.setView(markers[i].getLatLng(), 5);
+                markers[i].openPopup();
+                window.setTimeout(run, 3000);
+            }
+            run();
+        }
         </script>
 
 
@@ -35,6 +72,8 @@
 
     <footer>Copyright ©Path Finder 2015 All Rights Reserved</footer>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- THIS IS LINKING SUSAN'S JS FILE -->
+    <script src="/static/quizpath.js"></script>
 
  
 </body>

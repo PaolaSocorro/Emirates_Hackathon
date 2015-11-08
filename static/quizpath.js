@@ -14,6 +14,11 @@ function showQ5(){
 	$("#question5").show();
 }
 
+$( document ).ready(function() {
+        console.log( "document loaded" );
+        showTraditionals();
+    });
+
 
 // AUTOCOMPLETE
 
@@ -71,6 +76,7 @@ function showTraditionals(){
 function getRandom(max) {
     return Math.floor(Math.random() * max);
 }
+
 
 
 function getFareResults(persona){

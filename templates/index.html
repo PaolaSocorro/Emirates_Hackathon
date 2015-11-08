@@ -9,12 +9,13 @@
 		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 	<!-- LINK TO JQUERY UI FOR AUTOCOMPLETE -->
-		<link rel="stylesheet" href="../static/js/jquery-ui.min.css">
-		<script src="../static/js/external/jquery/jquery.js"></script>
-		<script src="../static/js/jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="/static/js/jquery-ui.min.css">
+		<script src="static/js/external/jquery/jquery.js"></script>
+		<script src="static/js/jquery-ui.min.js"></script>
 
 </head>
 <body>
+
 	<div class="container">
 		<h1>Path Finder</h1>
 			<button id="random">Random Button for Testing</button>
@@ -43,20 +44,25 @@
 			<div class="box parent-wrap" id="box11"></div>
 			<div class="box parent-wrap" id="box12"></div>
 		</div>
-		</div>
+	<hr>
+	<div id="row1"></div>
+	<div id="row2"></div>
+	<div id="row3"></div>
 
-		<div class="results container">
-			<div id="persona">
-			</div>
+</div>
+
+	<div class="results-container">
+		<div id="persona">
+			</div> <!-- closing for persona --> 
 
 			<div class="top-three-results">
+			</div> <!-- closing for top three results -->
 
-			</div>
 			<button id='load-more-results'>Load More Results...</button>
 
 			<div class="remaining-results">
-			</div>
-
+			</div> <!-- closing for remaining results -->
+	</div> <!-- closing for results container -->
 
 
 			<!-- EXPERIENCES MODAL WINDOW -->
@@ -81,44 +87,26 @@
 			  </div>
 			</div>
 
-		</div>
 
-	</div> <!-- closing for overall container -->
+
+	</div>
+
 	<footer>Copyright ©Path Finder 2015 All Rights Reserved</footer>
 
+	<script src="static/js/game.js"></script>
 	<script>
-		var questions = {"box1": "I often buy new products before they become popular or come down in price.",
-						"box3": "I have much more energy than most persons my age.",
-						"box6": "I prefer to go to undiscovered places rather than cities with big hotels. ",
-						"box8": "I prefer setting up plans and having a routine rather than spontaneity.",
-						"box9": "I am more intellectually curious than most people I know.",
-						"box12": "I believe chance has little to do with the successes I've had in my life."
-						}
-
-		$(document).ready(loadData);
-
-		function loadFirstQuestion() {
-			$('#box1').show();
-			$('#box1').css('background-color','#80ff95');
-		};
-
-		function loadData() {
-			loadFirstQuestion();
-			for (var i=1; i<=12; i++) {
-				if (questions['box'+i]) {
-					$('#box'+i).html('<div class="question-data">' + questions['box'+i] + '<br><button class="btn btn-success" id="box' +i+ '-button1" type="button">Yes</button> <button class="btn btn-danger box' +i+ '-option2" type="button">No</button></div>')
-				}
-				$('#box'+i + ' > .question-data').css('display','none');
-				$('#box1  > .question-data').css('display','block');
+		(function populateSquares() {
+			for (var i=1; i<=4; i++) {
+				$('#row1').append('<div class="box parent-wrap" id="box'+i+'"></div>');
 			}
-		};
+			for (var i=5; i<=8; i++) {
+				$('#row2').append('<div class="box parent-wrap" id="box'+i+'"></div>');
+			}
+			for (var i=9; i<=12; i++) {
+				$('#row3').append('<div class="box parent-wrap" id="box'+i+'"></div>');
+			}
 
-		$(document).on('click', '#box1-button1', function() {
-			$('#box1').find('button').css('display','none');
-			$('#box6 > .question-data').css('display','block');
-			$('#box6').css('background-color','#80ff95');
-		});
-
+		})();
 	</script>
 
 		<!-- BOOTSTRAP -->
@@ -126,6 +114,6 @@
 
 
 		<!-- THIS IS LINKING SUSAN'S JS FILE -->
-		<script src="../static/quizpath.js"></script>
+		<script src="static/quizpath.js"></script>
 </body>
 </html>

@@ -86,7 +86,7 @@ def get_personas():
 def results_page():
 	""" Displays the results from the quiz """
 
-	result = {"1": "results of 1","2":"results of 2","3":"results of 3"}
+	result = {"pioneer":{"1": "results of 1","2":"results of 2","3":"results of 3"}}
 
 
 	return render_template("result.html",result=result)

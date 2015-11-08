@@ -14,10 +14,10 @@ function showQ5(){
 	$("#question5").show();
 }
 
-$( document ).ready(function() {
-        console.log( "document loaded" );
-        showTraditionals();
-    });
+// $( document ).ready(function() {
+//         console.log( "document loaded" );
+//         showTraditionals();
+//     });
 
 
 // AUTOCOMPLETE
@@ -242,6 +242,7 @@ $(document).on('click', '.experiences-btn', function() {
 	$.get(url, function (data) {
 		console.log(data);
 
+	})
 });
 
 

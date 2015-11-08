@@ -4,6 +4,7 @@ body {
 	margin-bottom: 50px;
 	background-image: url('/static/img/fabric.jpg');
 	background-attachment:fixed;
+	background-size: 100%;
 	font-family: 'Open Sans', sans-serif;
 	color: white;
 }
@@ -128,7 +129,7 @@ div.top-three-results div.top-result {
 	height: 300px;
 	/*max-width: 900px;*/
 	width: 100%;
-	margin-top: 200px;
+	margin-top: 300px;
 	position: relative;
 	top: 50%;
 }
@@ -142,7 +143,7 @@ a {
 
 a:hover {
 	text-decoration: none;
-	text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+	text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 	color: white;
 }
 
@@ -173,4 +174,11 @@ ul#experiences li img {
 
 input {
 	color: #333;
+}
+
+footer {
+	bottom: 10px;
+	position: fixed;
+	text-align: center;
+	left: 40%;
 }

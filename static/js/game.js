@@ -1,4 +1,4 @@
-var questions = {"box1": "I often buy new products before they become popular or come down in price.",
+var QUESTIONS = {"box1": "I often buy new products before they become popular or come down in price.",
 				"box3": "I have much more energy than most persons my age.",
 				"box6": "I prefer to go to undiscovered places rather than cities with big hotels. ",
 				"box8": "I prefer setting up plans and having a routine rather than spontaneity.",
@@ -16,8 +16,8 @@ function loadFirstQuestion() {
 function loadData() {
 	loadFirstQuestion();
 	for (var i=1; i<=12; i++) {
-		if (questions['box'+i]) {
-			$('#box'+i).html('<div class="question-data">' + questions['box'+i] + '<br><button class="btn btn-success" id="box' +i+ '-button1" type="button">Yes</button> <button class="btn btn-danger" id="box' +i+ '-button2" type="button">No</button></div>')
+		if (QUESTIONS['box'+i]) {
+			$('#box'+i).html('<div class="question-data">' + QUESTIONS['box'+i] + '<br><button class="btn btn-success" id="box' +i+ '-button1" type="button">Yes</button> <button class="btn btn-danger" id="box' +i+ '-button2" type="button">No</button></div>')
 		}
 		$('#box'+i + ' > .question-data').css('display','none');
 		$('#box1  > .question-data').css('display','block');

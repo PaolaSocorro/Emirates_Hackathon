@@ -2,6 +2,7 @@ body {
 	text-align: center;
 	margin: 0 20px;
 	margin-bottom: 50px;
+	background-image: url('/static/img/fabric.jpg');
 }
 
 
@@ -91,6 +92,22 @@ div.top-three-results div.top-result {
 	padding: 20px;
 	border-radius: 20px;
 	background-color: #
+}
+
+<<<<<<< HEAD
+#game-container {
+	/*display: none;*/
+}
+
+#homepage {
+	height: 600px;
+	/*height: 100%;*/
+	width: 100%;
+	background-image: url('static/img/fabric.jpg');
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 div.remaining-results div.top-result {

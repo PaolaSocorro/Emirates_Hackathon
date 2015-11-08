@@ -12,6 +12,11 @@ p, h1, h2 {
 	color: #fff;
 }
 
+.modal, button {
+	color: #333;
+
+}
+
 h1 {
 	margin-bottom: 30px;
 	z-index: 2;

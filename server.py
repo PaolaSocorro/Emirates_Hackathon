@@ -24,7 +24,11 @@ def homepage():
 
 	return render_template("index.html")
 
+@app.route("/result")
+def results_page():
+	""" Displays the results from the quiz """
 
+	return render_template("result.html")
 
 @app.route("/airfaresearch.json")
 def airfare_search():

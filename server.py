@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import personas
-from model import AirportCode, connect_to_db, db
-=======
 from model import AirportCode, connect_to_db, db, Experience
->>>>>>> e79c3d9dd40501af038399c29d6f40b1c892dc01
 from flask import Flask, render_template, redirect, request, flash, session, jsonify
 
 import requests
@@ -41,7 +37,7 @@ def get_personas():
 								[1, 'Australia',"CBR", 8.5, 149.1950073, -35.3069], 
 								[1, 'London, England', "LCY", 7.0, 0.055278, 51.505268]], 
 				'pioneer': [[1, 'Peru', "LIM", 9.5, -77.114304, -12.021800], 
-							[1, 'Ireland', "DUB" 7.5, -6.249909800000069, 53.42644809999999], 
+							[1, 'Ireland', "DUB", 7.5, -6.249909800000069, 53.42644809999999], 
 							[1, 'British Columbia, Canada', "YYJ", 9.9, -123.1775716, 49.1959446]]}
 
 

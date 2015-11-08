@@ -75,6 +75,9 @@
 				$('#option1').attr('next', 'q4');
 				$('#option2').attr('next', 'q4');
 			}
+			else {
+				alert('hi');
+			}
 			if ($('#option1').attr('next') == 'q4') {
 				$('#question').empty();
 				$('#question').html($('#box6').attr('data-question'));
@@ -101,6 +104,9 @@
 				$('#box9').html($('#box3').attr('data-question'));
 				$('#option1').attr('next', 'q4');
 				$('#option2').attr('next', 'q4');
+			}
+			else {
+				alert('hello');
 			}
 			if ($('#option2').attr('next') == 'q4') {
 				$('#question').empty();

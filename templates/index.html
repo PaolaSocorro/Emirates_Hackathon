@@ -9,59 +9,53 @@
 		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 	<!-- LINK TO JQUERY UI FOR AUTOCOMPLETE -->
-		<link rel="stylesheet" href="../static/js/jquery-ui.min.css">
-		<script src="../static/js/external/jquery/jquery.js"></script>
-		<script src="../static/js/jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="/static/js/jquery-ui.min.css">
+		<script src="static/js/external/jquery/jquery.js"></script>
+		<script src="static/js/jquery-ui.min.js"></script>
 
 </head>
 <body>
-	<div class="container">
-		<h1>Path Finder</h1>
-		<div>
-			<label for="airportcodes">Enter Origin Airport: </label>
-			<input id="airportcodes" name="origin" tabindex="1" required>
+	<h1>Path Finder</h1>
+	<div>
+		<label for="airportcodes">Enter Origin Airport: </label>
+		<input id="airportcodes" name="origin" tabindex="1" required>
 
-			<button id="random">Random Button for Testing</button
-		</div>
-		<div id="question-section">
-			<div id="question"></div>
-		<hr>
-		<div>
-			<div class="box parent-wrap" id="box1"></div>
-			<div class="box parent-wrap" id="box2"></div>
-			<div class="box parent-wrap" id="box3"></div>
-			<div class="box parent-wrap" id="box4"></div>
-		</div>
-		<div>
-			<div class="box parent-wrap" id="box5"></div>
-			<div class="box parent-wrap" id="box6"></div>
-			<div class="box parent-wrap" id="box7"></div>
-			<div class="box parent-wrap" id="box8"></div>
-		</div>
-		<div>
-			<div class="box parent-wrap" id="box9"></div>
-			<div class="box parent-wrap" id="box10"></div>
-			<div class="box parent-wrap" id="box11"></div>
-			<div class="box parent-wrap" id="box12"></div>
-		</div>
+		<button id="random">Random Button for Testing</button>
+	</div>
+	<hr>
+	<div id="row1"></div>
+	<div id="row2"></div>
+	<div id="row3"></div>
+
+	<div class="results container">
+		<div id="persona">
 		</div>
 
-		<div class="results container">
-			<div id="persona">
-			</div>
-
-			<div class="top-three-results">
-
-			</div>
+		<div class="top-three-results">
 
 		</div>
 
-	</div> <!-- closing for overall container -->
+	</div>
+
 	<footer>Copyright ©Path Finder 2015 All Rights Reserved</footer>
 
-	<script src="/static/js/game.js"></script>
+	<script src="static/js/game.js"></script>
+	<script>
+		(function populateSquares() {
+			for (var i=1; i<=4; i++) {
+				$('#row1').append('<div class="box parent-wrap" id="box'+i+'"></div>');
+			}
+			for (var i=5; i<=8; i++) {
+				$('#row2').append('<div class="box parent-wrap" id="box'+i+'"></div>');
+			}
+			for (var i=9; i<=12; i++) {
+				$('#row3').append('<div class="box parent-wrap" id="box'+i+'"></div>');
+			}
+
+		})();
+	</script>
 
 		<!-- THIS IS LINKING SUSAN'S JS FILE -->
-		<script src="/static/quizpath.js"></script>
+		<script src="static/quizpath.js"></script>
 </body>
 </html>

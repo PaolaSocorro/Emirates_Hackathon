@@ -71,3 +71,8 @@ footer {
 	top: 50%;
 	transform: translateY(-50%);
 }
+
+.ui-menu {
+    background-color: #fff;
+    text-align: left;
+}

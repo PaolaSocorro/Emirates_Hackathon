@@ -7,10 +7,21 @@ body {
 .box {
 	width: 150px;
 	height: 150px;
-	/*border: 3px solid #ccc;*/
 	background-color: #ccc;
 	margin: 10px;
 	display: inline-block;
+	position: relative;
+}
+
+
+.result {
+	width: 500px;
+	height: 150px;
+	/*border: 3px solid #ccc;*/
+	background-color: #ccc;
+	margin: 0 auto;
+	margin-top: 10px;
+	display: block;
 }
 
 h1 {

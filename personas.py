@@ -67,24 +67,22 @@ add_location("voyager", voyager_soup)
 
 print personas_loc
 
-import os
-import csv
 
-currentPath = os.getcwd()
-csv_columns = ['Category','Location','Score']
+# currentPath = os.getcwd()
+# csv_columns = ['Category','Location','Score']
 
-def WriteListToCSV(csv_file,csv_columns,persona):
+# def WriteListToCSV(csv_file,csv_columns,persona):
 
-    with open(currentPath + csv_file, 'w') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(csv_columns)
-        for data in personas_loc[persona]:
-            writer.writerow(data)
+#     with open(currentPath + csv_file, 'w') as csvfile:
+#         writer = csv.writer(csvfile)
+#         writer.writerow(csv_columns)
+#         for data in personas_loc[persona]:
+#             writer.writerow(data)
 
-WriteListToCSV("/voyager.csv",csv_columns,"voyager")
-WriteListToCSV("/traditional.csv",csv_columns,"traditional")
-WriteListToCSV("/venturer",csv_columns,"venturer")
-WriteListToCSV("/pioneer.csv",csv_columns,"pioneer")
+# WriteListToCSV("/voyager.csv",csv_columns,"voyager")
+# WriteListToCSV("/traditional.csv",csv_columns,"traditional")
+# WriteListToCSV("/venturer",csv_columns,"venturer")
+# WriteListToCSV("/pioneer.csv",csv_columns,"pioneer")
 
 
 
@@ -101,14 +99,16 @@ WriteListToCSV("/pioneer.csv",csv_columns,"pioneer")
 # def add_description(persona, soup):
 # 	"""Add description as a string to the persona_loc dictionary"""
 
+# 	descriptions = []
 # 	matches = soup.find_all("p")
-# 	print len(matches)
 # 	for m in matches[9:15]:
 # 		for n in m.find_all(text = True):
-# 			print n.split("/n/n/n/")
+# 			descriptions.append(n.split("/n/n/n")[0].encode('utf-8'))
 # 			break
 
+# 	return descriptions
+
 # description_soup = get_description_raw_data("http://besttripchoices.com/travel-personalities/")
-# add_description("test", description_soup)
+# print add_description("test", description_soup)
 
 

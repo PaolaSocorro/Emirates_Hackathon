@@ -14,6 +14,11 @@ function showQ5(){
 	$("#question5").show();
 }
 
+$( document ).ready(function() {
+        console.log( "document loaded" );
+        showTraditionals();
+    });
+
 
 // AUTOCOMPLETE
 
@@ -66,6 +71,7 @@ function showTraditionals(){
 
 
 $("#random").on("click", showTraditionals)
+
 
 
 function getFareResults(persona){

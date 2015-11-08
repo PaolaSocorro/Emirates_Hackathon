@@ -13,6 +13,7 @@ body {
 	top:0; 
 	bottom:0; 
 	width:100%; 
+	opacity: .5;
 	z-index: -1;
 
 }
@@ -36,11 +37,11 @@ body {
 	margin-top: 10px;
 	display: block;
 	z-index: 2;
-	opacity: .5;
+	opacity: .8;
 }
 
-.result p{
-	opacity: 1;
+#persona{
+	padding: 20px;
 }
 
 h1 {

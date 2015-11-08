@@ -16,14 +16,14 @@
 		</div>
 		<hr>
 		<div>
-			<div class="box parent-wrap" id="box1" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"></div>
+			<div class="box parent-wrap" id="box1" data-question="I often buy new products before they become popular or come down in price."></div>
 			<div class="box parent-wrap" id="box2" data-question="---"></div>
 			<div class="box parent-wrap" id="box3" data-question="I have much more energy than most persons my age."></div>
 			<div class="box parent-wrap" id="box4" data-question="---"></div>
 		</div>
 		<div>
 			<div class="box parent-wrap" id="box5" data-question="---"></div>
-			<div class="box parent-wrap" id="box6" data-question="I prefer to go to undiscovered, wild places rather than cities with big hotels and restaurants."></div> 
+			<div class="box parent-wrap" id="box6" data-question="I prefer to go to undiscovered, wild places rather than cities with big hotels and restaurants."></div>
 			<div class="box parent-wrap" id="box7" data-question="---"></div>
 			<div class="box parent-wrap" id="box8" data-question="I prefer setting up plans and having a routine rather than spontaneity."></div>
 		</div>
@@ -56,8 +56,8 @@
 			if ($('#option1').attr('next') == 'q2') {
 				$('#question').empty();
 				$('#question').html($('#box3').attr('data-question'));
-				$('#box3').css('background-color','#80ff95');
-				$('#box3').html($('#box3').attr('data-question'));
+				$('#box6').css('background-color','#80ff95');
+				$('#box6').html($('#box6').attr('data-question'));
 				$('#option1').attr('next', 'q3');
 				$('#option2').attr('next', 'q5');
 			}
@@ -74,6 +74,19 @@
 				$('#box6').html($('#box3').attr('data-question'));
 				$('#option1').attr('next', 'q4');
 				$('#option2').attr('next', 'q4');
+			}
+			if ($('#option1').attr('next') == 'q4') {
+				$('#question').empty();
+				$('#question').html($('#box6').attr('data-question'));
+				$('#box3').css('background-color','#80ff95');
+				$('#box3').html($('#box3').attr('data-question'));
+				$('#option1').on('click', function() {
+					$('button').hide();
+					$('#question').append('<a href="/pioneers.html">See results</a>');
+				});
+				$('#option2').on('click', function() {
+					$('#question').append('<a href="/venturers.html">See results</a>')
+				});
 			}
 			$('button').on('click', showFollowingQuestion);
 		}
@@ -95,12 +108,13 @@
 				$('#box8').css('background-color','#80ff95');
 				$('#box8').html($('#box3').attr('data-question'));
 				$('#option1').on('click', function() {
+					$('button').hide();
 					$('#question').append('<a href="/pioneers.html">See results</a>');
 				});
 				$('#option2').on('click', function() {
 					$('#question').append('<a href="/venturers.html">See results</a>')
 				});
-			}
+			};
 			$('button').on('click', showFollowingQuestion);
 		}
 
@@ -108,6 +122,7 @@
 			$('#option1').on('click', showOption1);
 			$('#option2').on('click', showOption2);
 		}
+
 
 	</script>
 </body>

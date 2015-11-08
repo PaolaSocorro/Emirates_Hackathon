@@ -38,14 +38,19 @@
 		function checkAnswer() {
 			$('#option1').on('click', function() {
 				$('#second_box').css('background-color','#80ff95');
-				// $('#question').empty();
-				$('#question').html($('#second-box').attr('data-question'));
+				$('#question').empty();
+				loadNextQuestion();
 
 			});
 			$('#option2').on('click', function() {
 				$('#third_box').css('background-color','#80ff95');
 				$('#question').html($('#third-box').attr('data-question'));
 			});
+		}
+
+		function loadNextQuestion() {
+			$('#question').html($('#second-box').attr('data-question'));
+
 		}
 
 		$('.box').on('click', function() {

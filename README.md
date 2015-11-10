@@ -24,12 +24,16 @@ Reinventing flight search by showing flights and associated activities customize
 
 ## <a name="idea"></a>Idea
 
-![Personality Quiz](https://cloud.githubusercontent.com/assets/12265692/11053929/8025707a-871a-11e5-9cce-71fa6ae6cde0.png "Personality Quiz")
 
 The theme of this hackathon was "Flight Search using Personas" and we wanted to put an emphasis on personal exploration.
 
 Most of our travel ideas and suggestions come from family, friends, and advertisements. We wanted to give a more personalized flight search experience by using Dr. Stanley Plog's research on [Travel Personalities](http://besttripchoices.com/travel-personalities/). We created a shortened version of Dr. Plog's personality quiz and returned a list of flights to cities that is customized to the results of that quiz. For each city, the lowest fare with its departure and return times are listed and we also provide a list of activities provided by Xola. 
 
+![Personality Quiz](https://cloud.githubusercontent.com/assets/12265692/11053929/8025707a-871a-11e5-9cce-71fa6ae6cde0.png "Personality Quiz")
+
+![Results](https://cloud.githubusercontent.com/assets/12265692/11055179/3bc7b924-8729-11e5-8733-f5a0d62ae108.png "Flight Results")
+
+![Xola Experiences](https://cloud.githubusercontent.com/assets/12265692/11055182/443d8aac-8729-11e5-8e0b-3e187aafb0bc.png "Xola Experiences")
 
 -------------
 

@@ -48,6 +48,6 @@ We want to add more demographic data such as age, gender, and previous travel de
 
 **Katherine Wu** | [GitHub](https://github.com/katherinehuwu) | [LinkedIn](https://www.linkedin.com/in/katherinehuwu)
 
-**Peggy Zheng** | [GitHub](https://github.com/PeggyZheng) | [LinkedIn](ca.linkedin.com/in/peggyzheng)
+**Peggy Zheng** | [GitHub](https://github.com/PeggyZheng) | [LinkedIn](https://www.linkedin.com/in/peggyzheng)
 
 

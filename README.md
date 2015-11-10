@@ -1,7 +1,7 @@
 #Path Finder
-####1st Place Winner of Emirates Travel Hackathon
-####Winner of Best Use of Xola API
-####Future Eye Technology Sponsor Prize Winner
+> ####1st Place Winner of Emirates Travel Hackathon
+> ####Winner of Best Use of Xola API
+> ####Future Eye Technology Sponsor Prize Winner
 
 Reinventing flight search by showing flights and associated activities customized to a person's personality quiz result.
 

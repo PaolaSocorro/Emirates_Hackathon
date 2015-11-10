@@ -4,7 +4,7 @@ body {
 	margin-bottom: 50px;
 	background-image: url('/static/img/fabric.jpg');
 	background-attachment:fixed;
-	background-size: 100%;
+	height: 100%;
 	font-family: 'Open Sans', sans-serif;
 	color: white;
 }
@@ -74,8 +74,11 @@ h2 {
 	opacity: .8;
 }
 
-#persona{
-	padding: 20px;
+div#persona{
+	padding: 50px 150px;
+}
+div#persona{
+	font-size: 16px;
 }
 
 #question {
@@ -110,9 +113,6 @@ footer {
     color: #000;
 }
 
-div#persona {
-	padding: 50px;
-}
 
 div.top-three-results div.top-result {
 	display: inline-block;
@@ -157,6 +157,11 @@ div.remaining-results div.top-result {
 	padding: 20px;
 	margin: 20px;
 	border-radius: 20px;
+}
+
+div.remaining-results {
+	overflow-y: auto;
+	bottom: 20px;
 }
 
 ul#experiences li {

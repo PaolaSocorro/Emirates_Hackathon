@@ -18,6 +18,7 @@ Reinventing flight search by showing flights and associated activities customize
 
 * [Idea](#idea)
 * [Version 2.0](#version2)
+* [Tech Stack & APIs](#techstack)
 * [About The Developers](#about-us)
 
 -------------
@@ -39,6 +40,11 @@ Most of our travel ideas and suggestions come from family, friends, and advertis
 
 ## <a name="version2"></a>Version 2.0
 We want to add more demographic data such as age, gender, and previous travel destinations paired with machine learning to take Path Finder to the next level of personalization. We hope this can scale to be the next Netflix of travel.
+
+-------------
+
+## <a name="techstack"></a>Tech Stack & APIs
+Python, Flask, JavaScript, jQuery, AJAX, HTML, CSS, PostgreSQL, SQLAlchemy, Beautiful Soup, Sabre API, Xola API, Heroku
 
 -------------
 

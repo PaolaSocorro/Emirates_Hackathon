@@ -7,7 +7,7 @@
 
 Reinventing flight search by showing flights and associated activities customized to a person's personality quiz result.
 
-### Deployed on Heroku [Pathfinder](http://pathfinderemirates.herokuapp.com/)
+### Deployed on Heroku [Path Finder](http://pathfinderemirates.herokuapp.com/)
 
 
 ![Homepage](https://cloud.githubusercontent.com/assets/12265692/11053939/8f097fe6-871a-11e5-82a6-712dbc7e4d07.png "Path Finder Homepage")

@@ -4,7 +4,6 @@ body {
 	margin-bottom: 50px;
 	background-image: url('/static/img/fabric.jpg');
 	background-attachment:fixed;
-	height: 100%;
 	font-family: 'Open Sans', sans-serif;
 	color: white;
 }
@@ -92,10 +91,6 @@ div#persona{
 	vertical-align: top;
 }
 
-footer {
-	margin-top: 20px;
-}
-
 .selected {
 	background-color: #80ff95;
 }
@@ -152,6 +147,7 @@ a:visited {
 	color: white;
 }
 
+
 div.remaining-results div.top-result {
 	display: inline-block;
 	padding: 20px;
@@ -160,7 +156,6 @@ div.remaining-results div.top-result {
 }
 
 div.remaining-results {
-	overflow-y: auto;
 	bottom: 20px;
 }
 
@@ -181,9 +176,11 @@ input {
 	color: #333;
 }
 
+
 footer {
-	bottom: 10px;
+	width: 75%;
 	position: fixed;
-	text-align: center;
-	left: 40%;
+	left: 50%;
+	margin-left: -37.5%;
+	bottom: 0px;
 }
